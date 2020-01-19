@@ -1,0 +1,113 @@
+﻿@model ITI.Data.TradeAttendence
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TradeAttendence</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Trade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trade)
+        </dd>
+
+        <dt>
+            Number of Units 1st shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NU_1)
+        </dd>
+
+        <dt>
+            Number of Units 2nd shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NU_2)
+        </dd>
+
+        <dt>
+            Number of Units 3rd shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NU_3)
+        </dd>
+
+        <dt>
+            No of Trainees on Roll 1st shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NT_onRoll_1)
+        </dd>
+
+        <dt>
+            No of Trainees on Roll 2nd shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NT_onRoll_2)
+        </dd>
+
+        <dt>
+            No of Trainees on Roll 3rd shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NT_onRoll_3)
+        </dd>
+
+        <dt>
+            No of Trainees available on the date of inspection 1st shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NT_Avail_1)
+        </dd>
+
+        <dt>
+            No of Trainees available on the date of inspection 2nd shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NT_Avail_2)
+        </dd>
+
+        <dt>
+            No of Trainees available on the date of inspection 3rd shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NT_Avail_3)
+        </dd>
+
+        <dt>
+            Average % attendance as on Date of Inspection 1st shift
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Av_Att_1)
+        </dd>
+         
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

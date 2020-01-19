@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ITI.Models.TradeAffiliationSouModel>
+<div class="content">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="row text-right">
+                <div class="col-lg-11">
+
+                </div>
+                <div class="col-lg-1">
+                    <a href="/admin/TradeAffiliationSou/create" class="btn  btn-primary btn-lg">Create</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-body">
+
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Trade Name</th>
+                                <th>Session Year</th> 
+                                <th>Edit</th>
+                                <th>Delect</th>
+                            </tr>
+
+                            @foreach (var Affiliation in Model)
+                            {
+                                <tr>
+                                    <td>@Affiliation.TradeName</td>
+                                    <td>@Affiliation.SessionYear</td>
+                                    <td><a href="/admin/TradeAffiliationSou/create?id=@Affiliation.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                    <td><a href="/admin/TradeAffiliationSou/delete?id=@Affiliation.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

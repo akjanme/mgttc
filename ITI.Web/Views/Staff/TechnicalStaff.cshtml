@@ -1,0 +1,79 @@
+﻿@model List<ITI.Data.StaffTable>
+<div class="container">
+    <br />
+    <div class="content">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="row text-right">
+                    <div class="col-lg-11">
+
+                    </div>
+                    <div class="col-lg-1">
+                        @*<a href="/admin/StaffAcademic/create" class="btn btn-block btn-primary btn-lg">Create</a>*@
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th valign="top">
+                                <p>S. No.</p>
+                            </th>
+                            <th valign="top">
+                                <p>Designation</p>
+                            </th>
+                            <th valign="top">
+                                <p>Name</p>
+                            </th>
+                            <th valign="top">
+                                <p>Date of joining Institute</p>
+                            </th>
+                            <th valign="top">
+                                <p>Date of Birth</p>
+                            </th>
+                            <th valign="top">
+                                <p>Secondary School/ Matric Year of Passing Certificate No.</p>
+                            </th>
+                            <th valign="top">
+                                <p>Qualification Year of Passing Certificate No.</p>
+                            </th>
+                            <th valign="top">
+                                <p>Experience Details (Name of establishment &amp; Year of experience)</p>
+                            </th>
+                            <th valign="top">
+                                <p>Salary</p>
+                            </th>
+                            <th valign="top">
+                                <p>Salary A/c Details Bank Name, Branch &amp; A/C No.</p>
+                            </th>
+                            <th valign="top">
+                                <p>Photograph</p>
+                            </th>
+                        </tr>
+                        @{ int n = 0; }
+                        @foreach (var staff in Model)
+                        {
+                            if (staff.Staff == "Technical")
+                            {
+                                n = n + 1;
+                                <tr>
+                                    <td>@n</td>
+                                    <td>@staff.Designation</td>
+                                    <td>@staff.Name</td>
+                                    <td>@staff.DateOfJoin</td>
+                                    <td>@staff.DateOfBirth</td>
+                                    <td>@staff.SchoolMatric</td>
+                                    <td>@staff.Qualification</td>
+                                    <td>@staff.Experience</td>
+                                    <td>@staff.Salary</td>
+                                    <td>@staff.ACDetails</td>
+                                    <td><img src="@staff.PhotoGraph" width="25" height="25" /></td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>

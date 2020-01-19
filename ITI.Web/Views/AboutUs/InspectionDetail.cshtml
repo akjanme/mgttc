@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ITI.Models.InspectionModel>
+<div class="container">
+    <br />
+    <h3>Inspection Details</h3>
+    <table width="98%">
+        <tr>
+            <td><strong>Date of Inspection</strong></td>
+            <td><strong>Purpose of Inspection</strong></td>
+            <td colspan="3"><strong>Inspecting Team</strong></td>
+            <td><strong>Report</strong></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><strong>Name</strong></td>
+            <td><strong>Designation</strong></td>
+            <td><strong>Office Address</strong></td>
+            <td></td>
+        </tr>
+        @foreach (var value in Model)
+        {
+            <tr>
+                <td>@value.DateOfInsp</td>
+                <td>@value.PurposeOfInsp</td>
+                <td>@value.InspectorName</td>
+                <td>@value.InspectorDesg  </td>
+                <td>@value.InspectorAdrs</td>
+                <td>@value.Report</td>
+            </tr>
+        }
+    </table>
+    <br />
+</div>

@@ -1,0 +1,100 @@
+﻿@model IEnumerable<ITI.Data.TradeAttendence>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table border="1" cellspacing="0" cellpadding="0" width="100%" class="tableizer-table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Trade)
+        </th>
+        <th>
+            Number of Units 1st shift
+        </th>
+        <th>
+            Number of Units 2nd shift
+        </th>
+        <th>
+            Number of Units 3rd shift
+        </th>
+        <th>
+            No of Trainees on Roll 1st shift
+        </th>
+        <th>
+            No of Trainees on Roll 2nd shift
+        </th>
+        <th>
+            No of Trainees on Roll 3rd shift
+        </th>
+        <th>
+            No of Trainees available on the date of inspection 1st shift
+        </th>
+        <th>
+            No of Trainees available on the date of inspection 2nd shift
+        </th>
+        <th>
+            No of Trainees available on the date of inspection 3rd shift
+        </th>
+        <th>
+            Average % attendance as on Date of Inspection 1st shift
+        </th>
+        <th>
+            Average % attendance as on Date of Inspection 2nd shift
+        </th>
+        <th>
+            Average % attendance as on Date of Inspection 3rd shift
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NU_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NU_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NU_3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NT_onRoll_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NT_onRoll_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NT_onRoll_3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NT_Avail_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NT_Avail_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NT_Avail_3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Av_Att_1)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

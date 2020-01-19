@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ITI.Models.VisitorModel>
+<div class="container">
+    <br />
+</div>
+<div class="container">
+    <b style="font-size:x-large;">Visitors </b>
+    <table border="1" cellspacing="0" cellpadding="0" width="100%" class="tableizer-table">
+        <tbody>
+            <tr>
+                <td valign="top"align="center">
+                    <b>Name</b>
+                </td>
+                <td valign="top"align="center">
+                    <b>Comment</b>
+                </td> 
+            </tr>
+            @foreach (var affilation in Model)
+            {
+                <tr>
+                    <td align="center" class="text-bold">
+                        @affilation.vName
+                    </td>
+                    <td align="center" class="text-bold">
+                        @affilation.Comment
+                    </td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <br />
+</div>

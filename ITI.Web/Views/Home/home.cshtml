@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ITI.Models.NewsTableModel>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2 order-1 order-lg-2 mb-4 mb-lg-0">
+            <h2 class="section-title-underline mb-5">
+                <span>Latest News</span>
+            </h2>
+            @{ foreach(var p in Model ){
+                    <p>@p.NewsText</p>
+            }}
+            <div>
+            </div>
+        </div>
+        <div class="col-lg-9 mr-auto align-self-center order-2 order-lg-1">
+            <h2 class="section-title-underline mb-5">
+                <span>Welcome to Vijay Industrial Training Center!</span>
+            </h2>
+            <p>
+                The objective of <strong>Vijay ITC</strong> is to provide technical manpower
+                to industries. These persons are trained in basic skills required to do jobs of
+                say operator or a craftsman. The course in ITC is designed in way to impart basic
+                skill in the trade specified.
+            </p>
+            <p>
+                After passing ITC course a person may opt to undergo practical training in
+                his trade in an industry for a year or two.
+                <br />
+                Again the person has to appear &amp; pass in a test to be conducted by NCVT to get
+                the <strong>NATIONAL APPRENCESHIP CERTIFICATE</strong>. ITC impart training in technical
+                trades like instrument mechanic, electrician, fitter, diesel mechanic, electrical
+                mechanic. The certificate issued by NCVT are of same standard whether one had a
+                training in Government owned ITI or privately owned ITC..
+            </p>
+        </div>
+    </div>
+</div>

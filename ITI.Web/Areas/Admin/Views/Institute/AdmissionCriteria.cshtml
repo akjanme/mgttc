@@ -1,0 +1,147 @@
+﻿@model ITI.Models.AdmissionCriteriaModel
+@{
+    ViewBag.Title = "AdmissionCriteria";
+}
+
+<div class="container">
+    <br />
+    <b>ADMISSIONs (only for the trade (s) already affiliated to NCVT</b>
+
+    (No admission is allowed in any NCVT trade before affiliation is granted by Sub-Committee of NCVT)
+    <div class="row">
+        @using (Html.BeginForm("AdmissionCriteria", "Institute", FormMethod.Post, new { @class = "form-horizontal"}))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <table border="0" cellspacing="10" cellpadding="10">
+                <tbody>
+                    <tr>
+                        <td valign="top">
+                            1.
+                        </td>
+                        <td colspan="3" valign="top">
+                            Date of starting the session
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.SessionStartDate, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.SessionStartDate, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            2.
+                        </td>
+                        <td colspan="3" valign="top">
+                            Date of issue of notice calling for the application (attach notice or paper advertisement, pamphlets…… etc)
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.DateOfNotice, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.DateOfNotice, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            3.
+                        </td>
+                        <td colspan="3" valign="top">
+                            Last date for receipt of application fixed as per the notice
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.LastDateOfReciept, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.LastDateOfReciept, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            4.
+                        </td>
+                        <td colspan="3" valign="top">
+                            No. of applications received
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.NumberOfApplication, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.NumberOfApplication, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            5.
+                        </td>
+                        <td colspan="3" valign="top">
+                            Date by which the admissions were completed and classes started
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.DateOfAdmissionCompleted, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.DateOfAdmissionCompleted, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            7.
+                        </td>
+                        <td colspan="3" valign="top">
+                            Criteria for admission of trainees
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.CriteriaForAddmision, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CriteriaForAddmision, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            8.
+                        </td>
+                        <td colspan="3" valign="top">
+                            Whether the trainees admitted, fulfill the prescribed Qualification and age
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.IsTraineeQualified, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.IsTraineeQualified, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            9.
+                        </td>
+                        <td colspan="3" valign="top">
+                            Copy of the prospectus should be enclosed
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.IsCopyEnclosed, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.IsCopyEnclosed, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="top">
+                            10.
+                        </td>
+                        <td colspan="3" valign="top">
+                            CCE (continuous and comprehensive evaluation) Available on internet and evidence retained
+                        </td>
+                        <td valign="top">
+                            @Html.TextBoxFor(x => x.CCE, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.CCE, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td colspan="3" valign="top">
+                            @Html.HiddenFor(x => x.ID)
+                            <button type="submit" class="btn btn-info pull-right">Save</button>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+        </div>
+
+</div>

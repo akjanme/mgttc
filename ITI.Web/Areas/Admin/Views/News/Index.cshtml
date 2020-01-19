@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ITI.Models.NewsTableModel>
+<div class="content">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="row text-right">
+                <div class="col-lg-11">
+
+                </div>
+                <div class="col-lg-1">
+                    <a href="/admin/Placement/create" class="btn btn-block btn-primary btn-lg">Create</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-body">
+
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>NewsDate</th>
+                                <th>HeadLine</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var placement in Model)
+                            {
+                                <tr>
+                                    <td>@placement.NewsDate</td>
+                                    <td>@placement.NewsHeadLine</td>
+                                    <td><a href="/admin/News/create?id=@placement.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                    <td><a href="/admin/News/delete?id=@placement.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

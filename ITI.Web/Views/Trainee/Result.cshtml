@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ITI.Models.ITIResultModel>
+<div class="container">
+    <br />
+</div>
+    <div class="container">
+        <b>Result of All India Test conducted in last 3 years trade-wise (<i>Not applicable for new ITI</i>)</b>
+        <table border="1" cellspacing="0" cellpadding="0" width="100%" class="tableizer-table">
+            <tbody>
+                <tr>
+                    <td valign="top">
+                        Sl. No.
+                    </td>
+                    <td valign="top">
+                        Name of the trade
+                    </td>
+                    <td valign="top">
+                        Year of AITT Month &amp; Year
+                    </td>
+                    <td valign="top">
+                        No. of trainees appeared
+                    </td>
+                    <td valign="top">
+                        No. of trainees passed out
+                    </td>
+                    <td valign="top">
+                        Number of certificates issued (attach sheets if necessary)
+                    </td>
+                    <td valign="top">
+                        No. of Trainees secured job*
+                    </td>
+                </tr>
+                @foreach (var affilation in Model)
+                 {
+                    <tr>
+                        <td align="center" class="text-bold">
+                           @affilation.ID
+                        </td>
+                        <td align="center" class="text-bold">
+                           @affilation.Trade
+                        </td>
+                        <td align="center" class="text-bold">
+                           @affilation.Session
+                        </td>
+                        <td align="center" class="text-bold">
+                           @affilation.TotalAppeared
+                        </td>
+                        <td align="center" class="text-bold">
+                           @affilation.Passout
+                        </td>
+                        <td>@affilation.CertificateIssued</td>
+                        <td>@affilation.TotalStudent</td>
+                    </tr>
+                 }
+
+                
+
+            </tbody>
+        </table>
+    </div>
+<div class="container">
+        <br />
+ </div>

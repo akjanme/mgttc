@@ -1,0 +1,36 @@
+﻿<div class="site-section">
+    <div class="container">
+        <div class="container">
+            @using (Html.BeginForm("Feedback", "ContactUs", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                <div class="row">
+                    <div class="col-md-2 form-group">
+                        <label for="fname"><b>Name :</b></label>
+                    </div>
+                    <div class="col-md-10 form-group">
+                        <input type="text" id="lname" class="form-control form-control-lg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 form-group">
+                        <label for="eaddress"><b>Email Address :</b></label>
+                    </div>
+                    <div class="col-md-10 form-group">
+                        <input type="text" id="tel" class="form-control form-control-lg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label for="message"><b>Message</b></label>
+                        <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="submit" value="Send Enquiry" class="btn btn-primary btn-lg px-5">
+                    </div>
+                </div>
+            }
+            </div>
+    </div>
+</div>

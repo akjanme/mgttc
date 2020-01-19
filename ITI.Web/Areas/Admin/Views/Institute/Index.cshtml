@@ -1,0 +1,51 @@
+﻿@model List<ITI.Models.InstituteDetailModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="Detail"> 
+    <table class="tableizer-table">
+        <thead> 
+            <tr>
+                <td><b>Name Of The Society/ Trust / Company </b></td> 
+            </tr>
+            <tr>
+                <td><b>Registration Number and its Validity </b></td> 
+            </tr>
+            <tr>
+                <td><b>Scanned Copy of related certificates hyperlinked</b></td> 
+            </tr>
+            <tr>
+                <td> 
+                </td> 
+                <td></td>
+            </tr> 
+        </thead>
+        <tbody>
+            @foreach (var inst in Model)
+            {
+            <tr> 
+                <td>@inst.Name</td>
+            </tr>
+            <tr> 
+                <td>
+                    @inst.RegNo
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <img src="@inst.CertficateLink" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="/admin/Institute/create?id=@inst.ID" class="update btn btn-warning btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                </td>
+                <td><a href="/admin/Institute/create?id=@inst.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href="/admin/Institute/delete?id=@inst.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td> 
+            </tr> 
+            }
+        </tbody>
+    </table> 
+</div>

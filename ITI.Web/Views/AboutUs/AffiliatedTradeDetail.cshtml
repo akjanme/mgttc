@@ -1,0 +1,183 @@
+﻿@model ITI.Models.AffilationModel
+<div class="container">
+    <br />
+    <h3>Trades Affiliated</h3>
+    <table border="1" cellspacing="0" cellpadding="0" width="100%" class="tableizer-table">
+        <tbody>
+            <tr>
+                <td rowspan="3" valign="top">
+                    <p>
+                        <strong>Sl. No.</strong>
+                    </p>
+                </td>
+                <td colspan="5" valign="top">
+                    <p align="center">
+                        <strong>Affiliated Trade/Units</strong>
+                    </p>
+                </td>
+                <td rowspan="3" valign="top">
+                    <p>
+                        <strong>Month &amp; Year of start of session</strong>
+                    </p>
+                </td>
+                <td rowspan="3" valign="top">
+                    <p>
+                        <strong>
+                            DGE&amp;T reference under which affiliation granted
+                            with date (State/UT Directorate’s ref. No. not be
+                            quoted)
+                        </strong>
+                    </p>
+                </td>
+                <td rowspan="3" valign="top">
+                    <p>
+                        <strong>Remarks</strong>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" valign="top">
+                    <p align="center">
+                        <strong>Trades</strong>
+                    </p>
+                </td>
+                <td colspan="3" valign="top">
+                    <p align="center">
+                        <strong>Units</strong>
+                    </p>
+                </td>
+                <td rowspan="2" valign="top">
+                    <p align="center">
+                        <strong>Total Units</strong>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p align="center">
+                        <strong>Ist Shift</strong>
+                    </p>
+                </td>
+                <td>
+                    <p align="center">
+                        <strong>IInd Shift</strong>
+                    </p>
+                </td>
+                <td>
+                    <p align="center">
+                        <strong>IIIrd Shift</strong>
+                    </p>
+                </td>
+            </tr>
+            @foreach (var affilation in Model.TradeAffilatedList)
+            {
+            <tr>
+                <td align="center" class="text-bold">
+                    <p><strong>@affilation.ID</strong></p>
+                </td>
+                <td align="center" class="text-bold">
+                    <p><strong>@affilation.TradeName</strong></p>
+                </td>
+                <td align="center" class="text-bold">
+                    <p><strong>@affilation.FirstUnit</strong></p>
+                </td>
+                <td align="center" class="text-bold">
+                    <p><strong>@affilation.SecondUnit</strong></p>
+                </td>
+                <td align="center" class="text-bold">
+                    <p><strong>@affilation.ThirdUnit</strong></p>
+                </td>
+                <td align="center" class="text-bold">
+                    <p><strong>@{var total = affilation.FirstUnit + affilation.SecondUnit + affilation.ThirdUnit;}
+                        @total
+                        </strong></p>
+                </td>
+                <td align="center" class="text-bold">
+                    <p><strong>@affilation.SessionYear</strong></p>
+                </td>
+                <td align="center" class="text-bold">
+                    <p><strong>@affilation.DgetRef</strong></p>
+                </td>
+                <td align="center" class="text-bold">
+                    <p><strong>@affilation.Remark</strong></p>
+                </td> 
+            </tr>
+            } 
+        </tbody>
+    </table>
+
+    <hr />
+
+
+    <h3>Trades and units for which affiliation is sought now</h3>
+    <br />
+
+
+    <table border="1" cellspacing="0" cellpadding="0" width="100%" class="tableizer-table">
+        <tbody>
+            <tr>
+                <td rowspan="3">
+                    <p><strong>S.</strong></p>
+                    <p><strong>No.</strong></p>
+                </td>
+                <td colspan="5">
+                    <p><strong>Trade/Units for which affiliation sought</strong></p>
+                </td>
+                <td rowspan="3">
+                    <p><strong>Session for (Month &amp; Year)  from which affiliation sought </strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <p><strong>Trades</strong> </p>
+                </td>
+                <td colspan="3">
+                    <p><strong>Units</strong></p>
+                </td>
+                <td rowspan="2">
+                    <p><strong>Total</strong></p>
+                    <p><strong>Units</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><strong>Ist Shift</strong></p>
+                </td>
+                <td>
+                    <p><strong>IInd Shift</strong></p>
+                </td>
+                <td>
+                    <p><strong>IIIrd Shift</strong></p>
+                </td>
+            </tr> 
+            @foreach (var affsou in Model.TradeAffiliationSouList)
+            {
+            <tr>
+                <td>
+                    <p><strong>@affsou.ID</strong></p>
+                </td>
+                <td>
+                    <p><strong>@affsou.TradeName</strong></p>
+                </td>
+                <td>
+                    <p><strong>@affsou.FirstUnit</strong></p>
+                </td>
+                <td>
+                    <p><strong>@affsou.SecondUnit</strong></p>
+                </td>
+                <td>
+                    <p><strong>@affsou.ThirdUnit</strong></p>
+                </td>
+                <td>
+                    <p><strong>@{var sum = affsou.FirstUnit + affsou.SecondUnit + affsou.ThirdUnit;} 
+                        @sum</strong></p>
+                </td>
+                <td>
+                    <p><strong> @affsou.SessionYear </strong></p>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+<br />
+</div>

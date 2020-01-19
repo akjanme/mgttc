@@ -1,0 +1,72 @@
+﻿@model ITI.Models.InspectionModel
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 box box-info">
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            <div class="box-header with-border">
+                <h3 class="box-title">Inspection Detail</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("Create", "Inspection", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="Name" class="col-sm-4 control-label">Date of Inspection</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.DateOfInsp, new { @class = "form-control datePicker", @type = "date" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="col-sm-4 control-label">Purpose Of Inspection</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.PurposeOfInsp, new { @class = "form-control", @style = " width: 500px;", @cols = 30, @rows = 3 })
+                    </div>
+                </div>
+                <div class="form-group">
+                <label for="Name" class="col-sm-4 control-label box-body">Inspection Team Detail</label>
+                <div class="border active alert-info">
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Name</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.InspectorName, new { @class = "form-control", @style = " width: 500px;", @cols = 35, @rows = 5 })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Address</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.InspectorAdrs, new { @class = "form-control", @style = " width: 500px;", @cols = 35, @rows = 5 })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Designation</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.InspectorDesg, new { @class = "form-control", @style = " width: 500px;", @cols = 35, @rows = 5 })
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="col-sm-4 control-label">Report</label>
+                    <div class="col-sm-8">
+                         @Html.TextBoxFor(x => x.Report, new { @class = "form-control", @style = " width: 500px;", @cols = 35, @rows = 5 })
+                         @*@Html.ValidationMessageFor(x => x.NewsText, "", new { @class = "text-danger" })*@
+                    </div>
+                </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    @Html.HiddenFor(x => x.ID)
+                    <a href="/Admin/Inspection/Index" class="btn btn-default">Back To List</a>
+                    <button type="submit" class="btn btn-info pull-right">Save Information</button>
+                </div>
+                <!-- /.box-footer -->
+                }
+            </div>
+        <!-- /.box -->
+        <div class="col-md-6">
+
+        </div>
+    </div>
+</div>

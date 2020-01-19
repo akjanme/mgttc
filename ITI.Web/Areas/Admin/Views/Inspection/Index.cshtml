@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ITI.Models.InspectionModel>
+<div class="content">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="row text-right">
+                <div class="col-lg-11">
+
+                </div>
+                <div class="col-lg-1">
+                    <a href="/admin/Inspection/create" class="btn btn-primary btn-lg">Create</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-body">
+
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Date Of Inspection</th>
+                                <th>Purpose Of Inspection</th>
+                                <th>Report</th>
+                                <th>Edit</th>
+                                <th>Delect</th>
+                            </tr>
+
+                            @foreach (var inspection in Model)
+                            {
+                            <tr>
+                                <td>@inspection.DateOfInsp</td>
+                                <td>@inspection.PurposeOfInsp</td>
+                                <td>@inspection.Report</td>
+                                <td><a href="/admin/Inspection/create?id=@inspection.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                <td><a href="/admin/Inspection/delete?id=@inspection.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td> 
+                            </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
