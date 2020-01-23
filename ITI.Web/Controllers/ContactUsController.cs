@@ -17,14 +17,7 @@ namespace ITI.Web.Controllers
         {
             return View();
         }
-        public ActionResult HowToReach()
-        {
-            return View();
-        }
-        public ActionResult Faq()
-        {
-            return View();
-        }
+        
         public ActionResult Feedback()
         {
             return View();
@@ -54,10 +47,6 @@ namespace ITI.Web.Controllers
                 smtp.SendMailAsync(message);
                 return RedirectToAction("Sent");
             }
-            return View();
-        }
-        public ActionResult HelpLinks()
-        {
             return View();
         }
     }

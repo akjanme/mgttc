@@ -1,0 +1,115 @@
+﻿@model ITI.Data.Student
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 box box-info">
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("student", "student", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+            <div class="box-body">
+                <div class="form-group">
+                    @*@Html.LabelFor(x=>x.Name, "Student Name",new { @class= "col-sm-2 control-label" })*@
+                    <label for="Name" class="col-sm-4 control-label">Trade</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.Trade, new SelectList(ViewBag.Trade, "Value", "Text"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="col-sm-4 control-label">Unit</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.Unit, new SelectList(ViewBag.Unit, "Value", "Text"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="col-sm-4 control-label">Session</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.Session, new SelectList(ViewBag.Session, "Value", "Text"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info pull-right">Refrers</button>
+                </div><br />
+                <div class="form-group">
+                    <label for="FatherName" class="col-sm-4 control-label">Student Name</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.Category, new SelectList(ViewBag.Unit, "Value", "Text"), new { @class = "form-control" })
+                        <button type="submit" class="btn btn-info pull-right">Refresh</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="FatherName" class="col-sm-4 control-label">Father's Name</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.FatherName, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Session" class="col-sm-4 control-label">Year</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.Session, new SelectList(ViewBag.Session, "Value", "Text"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Month" class="col-sm-4 control-label">Month</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.Session, new SelectList(ViewBag.Session, "Value", "Text"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Report Card Type" class="col-sm-4 control-label">Report Card Type</label>
+                    <div class="col-sm-8">
+                        @Html.DropDownListFor(m => m.Session, new SelectList(ViewBag.Session, "Value", "Text"), new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Practical Mark" class="col-sm-4 control-label">Practical Mark</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.DateofBirth, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Theory Marks" class="col-sm-4 control-label">Theory Marks</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.DateofBirth, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="W/S Cal Science" class="col-sm-4 control-label">W/S Cal Science</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.DateofBirth, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Eng. Drawing" class="col-sm-4 control-label">Eng. Drawing</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.DateofBirth, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Attendence" class="col-sm-4 control-label">Attendence</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.DateofBirth, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Max Total" class="col-sm-4 control-label">Max Total</label>
+                    <div class="col-sm-8">
+                        @Html.TextBoxFor(x => x.DateofBirth, new { @class = "form-control" })
+                    </div>
+                </div>
+
+            </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Submit</button>
+                </div>
+                <!-- /.box-footer -->
+                }
+            </div>
+        <!-- /.box -->
+        <div class="col-md-6">
+
+        </div>
+    </div>
+

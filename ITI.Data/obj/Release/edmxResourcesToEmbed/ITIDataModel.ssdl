@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ITIEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Acheivement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameofAward" Type="nvarchar" MaxLength="80" />
+    <Property Name="SchemeName" Type="nvarchar" MaxLength="40" />
+    <Property Name="WonBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="Year" Type="nvarchar" MaxLength="10" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="AdmissionCriteria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SessionStartDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateOfNotice" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDateOfReciept" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumberOfApplication" Type="int" />
+    <Property Name="DateOfAdmissionCompleted" Type="nvarchar" MaxLength="50" />
+    <Property Name="CriteriaForAddmision" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsTraineeQualified" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsCopyEnclosed" Type="nvarchar" MaxLength="50" />
+    <Property Name="CCE" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Certificate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="No_Passout" Type="int" />
+    <Property Name="ntcIssued" Type="int" />
+    <Property Name="toIssued" Type="int" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="mobile" Type="nchar" MaxLength="10" />
+    <Property Name="email" Type="text" />
+    <Property Name="massage" Type="text" />
+  </EntityType>
+  <EntityType Name="ImageGallery">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ImagDesc" Type="nvarchar" MaxLength="100" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="InspectionDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateOfInsp" Type="date" />
+    <Property Name="PurposeOfInsp" Type="nvarchar" MaxLength="50" />
+    <Property Name="InspectorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="InspectorDesg" Type="nvarchar" MaxLength="50" />
+    <Property Name="InspectorAdrs" Type="nvarchar" MaxLength="50" />
+    <Property Name="Report" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="InstituteDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="RegNo" Type="nvarchar" MaxLength="150" />
+    <Property Name="CertficateLink" Type="nvarchar" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="ITIResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalStudent" Type="int" />
+    <Property Name="TotalAppeared" Type="int" />
+    <Property Name="Passout" Type="int" />
+    <Property Name="CertificateIssued" Type="int" />
+    <Property Name="Trade" Type="nvarchar" MaxLength="50" />
+    <Property Name="Session" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Marks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Month" Type="nvarchar" MaxLength="20" />
+    <Property Name="Year" Type="nvarchar" MaxLength="10" />
+    <Property Name="Practical" Type="int" />
+    <Property Name="Theory" Type="int" />
+    <Property Name="Ws_cal_science" Type="int" />
+    <Property Name="Attendence" Type="int" />
+    <Property Name="Eng_Drawing" Type="int" />
+    <Property Name="Total" Type="int" />
+    <Property Name="Month_Quarter" Type="int" />
+    <Property Name="Trade" Type="nvarchar" MaxLength="30" />
+    <Property Name="Unit" Type="int" />
+    <Property Name="Sd_id" Type="int" />
+  </EntityType>
+  <EntityType Name="NewsTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="NewsDate" Type="datetime" />
+    <Property Name="NewsHeadLine" Type="nvarchar" MaxLength="200" />
+    <Property Name="NewsText" Type="nvarchar" MaxLength="500" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlacementTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Roll_No" Type="nvarchar" MaxLength="20" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Trade" Type="nvarchar" MaxLength="20" />
+    <Property Name="PassingYear" Type="nvarchar" MaxLength="20" />
+    <Property Name="Org_Name" Type="nvarchar" MaxLength="80" />
+    <Property Name="SalaryOnJoin" Type="int" />
+  </EntityType>
+  <EntityType Name="ResultList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Trade" Type="nvarchar" MaxLength="50" />
+    <Property Name="YearOfAlTT" Type="date" />
+    <Property Name="TraineesAppeared" Type="int" />
+    <Property Name="TraineesPassed" Type="int" />
+    <Property Name="Certificates" Type="int" />
+    <Property Name="TraineesJob" Type="int" />
+  </EntityType>
+  <EntityType Name="StaffAttendence">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Month" Type="nvarchar" MaxLength="20" />
+    <Property Name="Attendence" Type="int" />
+  </EntityType>
+  <EntityType Name="StaffTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="30" />
+    <Property Name="Name" Type="nvarchar" MaxLength="60" />
+    <Property Name="Staff" Type="nvarchar" MaxLength="60" />
+    <Property Name="DateOfJoin" Type="date" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="SchoolMatric" Type="nvarchar" MaxLength="50" />
+    <Property Name="Qualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="Experience" Type="nvarchar" MaxLength="50" />
+    <Property Name="Salary" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACDetails" Type="nvarchar" MaxLength="50" />
+    <Property Name="PhotoGraph" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="80" />
+    <Property Name="FatherName" Type="nvarchar" MaxLength="80" />
+    <Property Name="EnrollNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="Category" Type="nvarchar" MaxLength="25" />
+    <Property Name="Trade" Type="nvarchar" MaxLength="20" />
+    <Property Name="Unit" Type="int" />
+    <Property Name="DateofBirth" Type="datetime" />
+    <Property Name="Session" Type="nvarchar" MaxLength="20" />
+    <Property Name="Qualification" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateofAddmission" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TarineeList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Trade" Type="nvarchar" MaxLength="50" />
+    <Property Name="UnitFirst" Type="int" />
+    <Property Name="UnitSecond" Type="int" />
+    <Property Name="UnitThird" Type="int" />
+    <Property Name="TraineesFirst" Type="int" />
+    <Property Name="TraineesSecond" Type="int" />
+    <Property Name="TraineesThird" Type="int" />
+    <Property Name="InspectionFirst" Type="int" />
+    <Property Name="InspectionSecond" Type="int" />
+    <Property Name="InspectionThird" Type="int" />
+    <Property Name="AverageInspection" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TradeAffiliated">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TradeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstUnit" Type="int" />
+    <Property Name="SecondUnit" Type="int" />
+    <Property Name="ThirdUnit" Type="int" />
+    <Property Name="DgetRef" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="SessionYear" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TradeAffiliationSou">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TradeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstUnit" Type="int" />
+    <Property Name="SecondUnit" Type="int" />
+    <Property Name="ThirdUnit" Type="int" />
+    <Property Name="SessionYear" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TradeAttendence">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Trade" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NU_1" Type="int" />
+    <Property Name="NU_2" Type="int" />
+    <Property Name="NU_3" Type="int" />
+    <Property Name="NT_onRoll_1" Type="int" />
+    <Property Name="NT_onRoll_2" Type="int" />
+    <Property Name="NT_onRoll_3" Type="int" />
+    <Property Name="NT_Avail_1" Type="int" />
+    <Property Name="NT_Avail_2" Type="int" />
+    <Property Name="NT_Avail_3" Type="int" />
+    <Property Name="Av_Att_1" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Visitor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="350" />
+  </EntityType>
+  <EntityContainer Name="ITIEntitiesStoreContainer">
+    <EntitySet Name="Acheivement" EntityType="Self.Acheivement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdmissionCriteria" EntityType="Self.AdmissionCriteria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Certificate" EntityType="Self.Certificate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageGallery" EntityType="Self.ImageGallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InspectionDetail" EntityType="Self.InspectionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InstituteDetail" EntityType="Self.InstituteDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ITIResult" EntityType="Self.ITIResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsTable" EntityType="Self.NewsTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlacementTable" EntityType="Self.PlacementTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResultList" EntityType="Self.ResultList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffAttendence" EntityType="Self.StaffAttendence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StaffTable" EntityType="Self.StaffTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TarineeList" EntityType="Self.TarineeList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TradeAffiliated" EntityType="Self.TradeAffiliated" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TradeAffiliationSou" EntityType="Self.TradeAffiliationSou" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TradeAttendence" EntityType="Self.TradeAttendence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Visitor" EntityType="Self.Visitor" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ITIEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Acheivement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameofAward" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="SchemeName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="WonBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AdmissionCriteria">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SessionStartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfNotice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastDateOfReciept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfApplication" Type="Int32" />
+    <Property Name="DateOfAdmissionCompleted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CriteriaForAddmision" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsTraineeQualified" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsCopyEnclosed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Certificate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="No_Passout" Type="Int32" />
+    <Property Name="ntcIssued" Type="Int32" />
+    <Property Name="toIssued" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="massage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ImageGallery">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ImagDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="InspectionDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateOfInsp" Type="DateTime" Precision="0" />
+    <Property Name="PurposeOfInsp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InspectorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InspectorDesg" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InspectorAdrs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Report" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="InstituteDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RegNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CertficateLink" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ITIResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalStudent" Type="Int32" />
+    <Property Name="TotalAppeared" Type="Int32" />
+    <Property Name="Passout" Type="Int32" />
+    <Property Name="CertificateIssued" Type="Int32" />
+    <Property Name="Trade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Mark">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Month" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Practical" Type="Int32" />
+    <Property Name="Theory" Type="Int32" />
+    <Property Name="Ws_cal_science" Type="Int32" />
+    <Property Name="Attendence" Type="Int32" />
+    <Property Name="Eng_Drawing" Type="Int32" />
+    <Property Name="Total" Type="Int32" />
+    <Property Name="Month_Quarter" Type="Int32" />
+    <Property Name="Trade" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Unit" Type="Int32" />
+    <Property Name="Sd_id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="NewsTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="NewsDate" Type="DateTime" Precision="3" />
+    <Property Name="NewsHeadLine" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NewsText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="PlacementTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Roll_No" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Trade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PassingYear" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Org_Name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="SalaryOnJoin" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ResultList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Trade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="YearOfAlTT" Type="DateTime" Precision="0" />
+    <Property Name="TraineesAppeared" Type="Int32" />
+    <Property Name="TraineesPassed" Type="Int32" />
+    <Property Name="Certificates" Type="Int32" />
+    <Property Name="TraineesJob" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StaffAttendence">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Month" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Attendence" Type="Int32" />
+  </EntityType>
+  <EntityType Name="StaffTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Staff" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfJoin" Type="DateTime" Precision="0" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="SchoolMatric" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Experience" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ACDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoGraph" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="EnrollNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Category" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Trade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Unit" Type="Int32" />
+    <Property Name="DateofBirth" Type="DateTime" Precision="3" />
+    <Property Name="Session" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateofAddmission" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TarineeList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Trade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnitFirst" Type="Int32" />
+    <Property Name="UnitSecond" Type="Int32" />
+    <Property Name="UnitThird" Type="Int32" />
+    <Property Name="TraineesFirst" Type="Int32" />
+    <Property Name="TraineesSecond" Type="Int32" />
+    <Property Name="TraineesThird" Type="Int32" />
+    <Property Name="InspectionFirst" Type="Int32" />
+    <Property Name="InspectionSecond" Type="Int32" />
+    <Property Name="InspectionThird" Type="Int32" />
+    <Property Name="AverageInspection" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TradeAffiliated">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TradeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstUnit" Type="Int32" />
+    <Property Name="SecondUnit" Type="Int32" />
+    <Property Name="ThirdUnit" Type="Int32" />
+    <Property Name="DgetRef" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SessionYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TradeAffiliationSou">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TradeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstUnit" Type="Int32" />
+    <Property Name="SecondUnit" Type="Int32" />
+    <Property Name="ThirdUnit" Type="Int32" />
+    <Property Name="SessionYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TradeAttendence">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Trade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NU_1" Type="Int32" />
+    <Property Name="NU_2" Type="Int32" />
+    <Property Name="NU_3" Type="Int32" />
+    <Property Name="NT_onRoll_1" Type="Int32" />
+    <Property Name="NT_onRoll_2" Type="Int32" />
+    <Property Name="NT_onRoll_3" Type="Int32" />
+    <Property Name="NT_Avail_1" Type="Int32" />
+    <Property Name="NT_Avail_2" Type="Int32" />
+    <Property Name="NT_Avail_3" Type="Int32" />
+    <Property Name="Av_Att_1" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Visitor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ITIDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Acheivements" EntityType="Self.Acheivement" />
+    <EntitySet Name="AdmissionCriterias" EntityType="Self.AdmissionCriteria" />
+    <EntitySet Name="Certificates" EntityType="Self.Certificate" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="ImageGalleries" EntityType="Self.ImageGallery" />
+    <EntitySet Name="InspectionDetails" EntityType="Self.InspectionDetail" />
+    <EntitySet Name="InstituteDetails" EntityType="Self.InstituteDetail" />
+    <EntitySet Name="ITIResults" EntityType="Self.ITIResult" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="Marks" EntityType="Self.Mark" />
+    <EntitySet Name="NewsTables" EntityType="Self.NewsTable" />
+    <EntitySet Name="PlacementTables" EntityType="Self.PlacementTable" />
+    <EntitySet Name="ResultLists" EntityType="Self.ResultList" />
+    <EntitySet Name="StaffAttendences" EntityType="Self.StaffAttendence" />
+    <EntitySet Name="StaffTables" EntityType="Self.StaffTable" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="TarineeLists" EntityType="Self.TarineeList" />
+    <EntitySet Name="TradeAffiliateds" EntityType="Self.TradeAffiliated" />
+    <EntitySet Name="TradeAffiliationSous" EntityType="Self.TradeAffiliationSou" />
+    <EntitySet Name="TradeAttendences" EntityType="Self.TradeAttendence" />
+    <EntitySet Name="Visitors" EntityType="Self.Visitor" />
+  </EntityContainer>
+</Schema>

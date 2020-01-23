@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html> 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Vijay Industrial Training Centre</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @* @Styles.Render("~/Content/admin")*@
+    @Styles.Render("~/bundles/csss")
+    @Styles.Render("~/bundles/scss")
+
+</head>
+<body>
+    <div class="wrapper">
+        @Html.Partial("_homeheader")
+        <!-- Left side column. contains the logo and sidebar -->
+        @Html.Partial("_sidebarhome")
+        <!-- Content Wrapper. Contains page content -->
+        <div class="container">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+        @Html.Partial("_homefooter")
+        <!-- Control Sidebar -->
+        <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/fonts")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@Scripts.Render("~/bundles/adminjquery")*@
+
+    @RenderSection("scripts", required: false)
+</body> 

@@ -1,0 +1,38 @@
+﻿@model ITI.Models.LoginModel
+<div class="site-section" style="background-image:url('~/images/hero_1.jpg');">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="container" style="width:800px;height:600px">
+            <br /><br /><br /><br /><br />
+            <div class="row">
+                <div class="col-md-2 form-group"></div>
+                <div class="col-md-3 form-group">
+                    <label for="user_name"><b> User Name :</b></label>
+                </div>
+                <div class="col-md-5 form-group">
+                    @Html.TextBoxFor(x => x.User_Name, new { @class = "form-control" }) 
+                    @Html.ValidationMessageFor(x => x.User_Name, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2 form-group"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 form-group"></div>
+                <div class="col-md-3 form-group">
+                    <label for="password"><b>PassWord :</b></label>
+                </div>
+                <div class="col-md-5 form-group">
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2 form-group"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 form-group"></div>
+                <div class="col-10">
+                    <input type="submit" value="Login" class="btn btn-primary btn-lg px-5">
+                </div>
+            </div>
+        </div>
+    }
+</div>

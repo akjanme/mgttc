@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ITIEntitiesStoreContainer" CdmEntityContainer="ITIDataEntities">
+    <EntitySetMapping Name="Acheivements">
+      <EntityTypeMapping TypeName="ITIEntities.Acheivement">
+        <MappingFragment StoreEntitySet="Acheivement">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameofAward" ColumnName="NameofAward" />
+          <ScalarProperty Name="SchemeName" ColumnName="SchemeName" />
+          <ScalarProperty Name="WonBy" ColumnName="WonBy" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdmissionCriterias">
+      <EntityTypeMapping TypeName="ITIEntities.AdmissionCriteria">
+        <MappingFragment StoreEntitySet="AdmissionCriteria">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SessionStartDate" ColumnName="SessionStartDate" />
+          <ScalarProperty Name="DateOfNotice" ColumnName="DateOfNotice" />
+          <ScalarProperty Name="LastDateOfReciept" ColumnName="LastDateOfReciept" />
+          <ScalarProperty Name="NumberOfApplication" ColumnName="NumberOfApplication" />
+          <ScalarProperty Name="DateOfAdmissionCompleted" ColumnName="DateOfAdmissionCompleted" />
+          <ScalarProperty Name="CriteriaForAddmision" ColumnName="CriteriaForAddmision" />
+          <ScalarProperty Name="IsTraineeQualified" ColumnName="IsTraineeQualified" />
+          <ScalarProperty Name="IsCopyEnclosed" ColumnName="IsCopyEnclosed" />
+          <ScalarProperty Name="CCE" ColumnName="CCE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Certificates">
+      <EntityTypeMapping TypeName="ITIEntities.Certificate">
+        <MappingFragment StoreEntitySet="Certificate">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="No_Passout" ColumnName="No_Passout" />
+          <ScalarProperty Name="ntcIssued" ColumnName="ntcIssued" />
+          <ScalarProperty Name="toIssued" ColumnName="toIssued" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="ITIEntities.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="massage" ColumnName="massage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImageGalleries">
+      <EntityTypeMapping TypeName="ITIEntities.ImageGallery">
+        <MappingFragment StoreEntitySet="ImageGallery">
+          <ScalarProperty Name="ImagDesc" ColumnName="ImagDesc" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InspectionDetails">
+      <EntityTypeMapping TypeName="ITIEntities.InspectionDetail">
+        <MappingFragment StoreEntitySet="InspectionDetail">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DateOfInsp" ColumnName="DateOfInsp" />
+          <ScalarProperty Name="PurposeOfInsp" ColumnName="PurposeOfInsp" />
+          <ScalarProperty Name="InspectorName" ColumnName="InspectorName" />
+          <ScalarProperty Name="InspectorDesg" ColumnName="InspectorDesg" />
+          <ScalarProperty Name="InspectorAdrs" ColumnName="InspectorAdrs" />
+          <ScalarProperty Name="Report" ColumnName="Report" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InstituteDetails">
+      <EntityTypeMapping TypeName="ITIEntities.InstituteDetail">
+        <MappingFragment StoreEntitySet="InstituteDetail">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="CertficateLink" ColumnName="CertficateLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ITIResults">
+      <EntityTypeMapping TypeName="ITIEntities.ITIResult">
+        <MappingFragment StoreEntitySet="ITIResult">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TotalStudent" ColumnName="TotalStudent" />
+          <ScalarProperty Name="TotalAppeared" ColumnName="TotalAppeared" />
+          <ScalarProperty Name="Passout" ColumnName="Passout" />
+          <ScalarProperty Name="CertificateIssued" ColumnName="CertificateIssued" />
+          <ScalarProperty Name="Trade" ColumnName="Trade" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="ITIEntities.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marks">
+      <EntityTypeMapping TypeName="ITIEntities.Mark">
+        <MappingFragment StoreEntitySet="Marks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Practical" ColumnName="Practical" />
+          <ScalarProperty Name="Theory" ColumnName="Theory" />
+          <ScalarProperty Name="Ws_cal_science" ColumnName="Ws_cal_science" />
+          <ScalarProperty Name="Attendence" ColumnName="Attendence" />
+          <ScalarProperty Name="Eng_Drawing" ColumnName="Eng_Drawing" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Month_Quarter" ColumnName="Month_Quarter" />
+          <ScalarProperty Name="Trade" ColumnName="Trade" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Sd_id" ColumnName="Sd_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsTables">
+      <EntityTypeMapping TypeName="ITIEntities.NewsTable">
+        <MappingFragment StoreEntitySet="NewsTable">
+          <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+          <ScalarProperty Name="NewsHeadLine" ColumnName="NewsHeadLine" />
+          <ScalarProperty Name="NewsText" ColumnName="NewsText" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlacementTables">
+      <EntityTypeMapping TypeName="ITIEntities.PlacementTable">
+        <MappingFragment StoreEntitySet="PlacementTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Roll_No" ColumnName="Roll_No" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Trade" ColumnName="Trade" />
+          <ScalarProperty Name="PassingYear" ColumnName="PassingYear" />
+          <ScalarProperty Name="Org_Name" ColumnName="Org_Name" />
+          <ScalarProperty Name="SalaryOnJoin" ColumnName="SalaryOnJoin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResultLists">
+      <EntityTypeMapping TypeName="ITIEntities.ResultList">
+        <MappingFragment StoreEntitySet="ResultList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Trade" ColumnName="Trade" />
+          <ScalarProperty Name="YearOfAlTT" ColumnName="YearOfAlTT" />
+          <ScalarProperty Name="TraineesAppeared" ColumnName="TraineesAppeared" />
+          <ScalarProperty Name="TraineesPassed" ColumnName="TraineesPassed" />
+          <ScalarProperty Name="Certificates" ColumnName="Certificates" />
+          <ScalarProperty Name="TraineesJob" ColumnName="TraineesJob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffAttendences">
+      <EntityTypeMapping TypeName="ITIEntities.StaffAttendence">
+        <MappingFragment StoreEntitySet="StaffAttendence">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Attendence" ColumnName="Attendence" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffTables">
+      <EntityTypeMapping TypeName="ITIEntities.StaffTable">
+        <MappingFragment StoreEntitySet="StaffTable">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Staff" ColumnName="Staff" />
+          <ScalarProperty Name="DateOfJoin" ColumnName="DateOfJoin" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="SchoolMatric" ColumnName="SchoolMatric" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="ACDetails" ColumnName="ACDetails" />
+          <ScalarProperty Name="PhotoGraph" ColumnName="PhotoGraph" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="ITIEntities.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="EnrollNo" ColumnName="EnrollNo" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Trade" ColumnName="Trade" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="DateofAddmission" ColumnName="DateofAddmission" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarineeLists">
+      <EntityTypeMapping TypeName="ITIEntities.TarineeList">
+        <MappingFragment StoreEntitySet="TarineeList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Trade" ColumnName="Trade" />
+          <ScalarProperty Name="UnitFirst" ColumnName="UnitFirst" />
+          <ScalarProperty Name="UnitSecond" ColumnName="UnitSecond" />
+          <ScalarProperty Name="UnitThird" ColumnName="UnitThird" />
+          <ScalarProperty Name="TraineesFirst" ColumnName="TraineesFirst" />
+          <ScalarProperty Name="TraineesSecond" ColumnName="TraineesSecond" />
+          <ScalarProperty Name="TraineesThird" ColumnName="TraineesThird" />
+          <ScalarProperty Name="InspectionFirst" ColumnName="InspectionFirst" />
+          <ScalarProperty Name="InspectionSecond" ColumnName="InspectionSecond" />
+          <ScalarProperty Name="InspectionThird" ColumnName="InspectionThird" />
+          <ScalarProperty Name="AverageInspection" ColumnName="AverageInspection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TradeAffiliateds">
+      <EntityTypeMapping TypeName="ITIEntities.TradeAffiliated">
+        <MappingFragment StoreEntitySet="TradeAffiliated">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TradeName" ColumnName="TradeName" />
+          <ScalarProperty Name="FirstUnit" ColumnName="FirstUnit" />
+          <ScalarProperty Name="SecondUnit" ColumnName="SecondUnit" />
+          <ScalarProperty Name="ThirdUnit" ColumnName="ThirdUnit" />
+          <ScalarProperty Name="DgetRef" ColumnName="DgetRef" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="SessionYear" ColumnName="SessionYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TradeAffiliationSous">
+      <EntityTypeMapping TypeName="ITIEntities.TradeAffiliationSou">
+        <MappingFragment StoreEntitySet="TradeAffiliationSou">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TradeName" ColumnName="TradeName" />
+          <ScalarProperty Name="FirstUnit" ColumnName="FirstUnit" />
+          <ScalarProperty Name="SecondUnit" ColumnName="SecondUnit" />
+          <ScalarProperty Name="ThirdUnit" ColumnName="ThirdUnit" />
+          <ScalarProperty Name="SessionYear" ColumnName="SessionYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TradeAttendences">
+      <EntityTypeMapping TypeName="ITIEntities.TradeAttendence">
+        <MappingFragment StoreEntitySet="TradeAttendence">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Trade" ColumnName="Trade" />
+          <ScalarProperty Name="NU_1" ColumnName="NU_1" />
+          <ScalarProperty Name="NU_2" ColumnName="NU_2" />
+          <ScalarProperty Name="NU_3" ColumnName="NU_3" />
+          <ScalarProperty Name="NT_onRoll_1" ColumnName="NT_onRoll_1" />
+          <ScalarProperty Name="NT_onRoll_2" ColumnName="NT_onRoll_2" />
+          <ScalarProperty Name="NT_onRoll_3" ColumnName="NT_onRoll_3" />
+          <ScalarProperty Name="NT_Avail_1" ColumnName="NT_Avail_1" />
+          <ScalarProperty Name="NT_Avail_2" ColumnName="NT_Avail_2" />
+          <ScalarProperty Name="NT_Avail_3" ColumnName="NT_Avail_3" />
+          <ScalarProperty Name="Av_Att_1" ColumnName="Av_Att_1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visitors">
+      <EntityTypeMapping TypeName="ITIEntities.Visitor">
+        <MappingFragment StoreEntitySet="Visitor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="vName" ColumnName="vName" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
