@@ -15,15 +15,16 @@ namespace ITI.Data
     public partial class Student
     {
         public int ID { get; set; }
-        public string Name { get; set; }
+        public Nullable<int> RollNo { get; set; }
+        public string Sname { get; set; }
         public string FatherName { get; set; }
-        public string EnrollNo { get; set; }
+        public string MotherName { get; set; }
+        public string Gender { get; set; }
         public string Category { get; set; }
-        public string Trade { get; set; }
-        public Nullable<int> Unit { get; set; }
-        public Nullable<System.DateTime> DateofBirth { get; set; }
+        public string SubCategory { get; set; }
+        public Nullable<System.DateTime> Dob { get; set; }
+        public string MobileNo { get; set; }
+        public string Faculty { get; set; }
         public string Session { get; set; }
-        public string Qualification { get; set; }
-        public Nullable<System.DateTime> DateofAddmission { get; set; }
     }
 }

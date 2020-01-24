@@ -1,5 +1,4 @@
 ﻿using ITI.Data;
-using ITI.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,36 +10,38 @@ namespace ITI.Repository.Repository
 {
     public class StudentRepository
     {
-        protected ITIDataEntities iTIDataEntities;
+        protected MGTTCEntities mGTTCEntities;
+
         public StudentRepository()
         {
-            iTIDataEntities = new ITIDataEntities();
+            mGTTCEntities = new MGTTCEntities();
         }
+
         public List<Student> GetStudents()
         {
-            return iTIDataEntities.Students.ToList();
+            return mGTTCEntities.Students.ToList();
         }
         public Student GetStudentById(int id)
         {
-            return iTIDataEntities.Students.FirstOrDefault(x => x.ID == id);
+            return mGTTCEntities.Students.FirstOrDefault(x => x.ID == id);
         }
         public Student InsertStudent(Student student)
         {
-            var inserted = iTIDataEntities.Students.Add(student);
-            iTIDataEntities.SaveChanges();
+            var inserted = mGTTCEntities.Students.Add(student);
+            mGTTCEntities.SaveChanges();
             return inserted;
         }
         public Student UpdateStudent(Student student)
         {
-            iTIDataEntities.Entry(student).State = EntityState.Modified;
-            iTIDataEntities.SaveChanges();
+            mGTTCEntities.Entry(student).State = EntityState.Modified;
+            mGTTCEntities.SaveChanges();
             return student;
         }
-        public void DeleteStudents(int id)
+        public void DelectStudents(int id)
         {
-            var student = iTIDataEntities.Students.FirstOrDefault(x => x.ID == id);
-            iTIDataEntities.Students.Remove(student);
-            iTIDataEntities.SaveChanges();
+            var student = mGTTCEntities.Students.FirstOrDefault(x => x.ID == id);
+            mGTTCEntities.Students.Remove(student);
+            mGTTCEntities.SaveChanges();
         }
     }
 }

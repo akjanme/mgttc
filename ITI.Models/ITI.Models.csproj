@@ -46,27 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcheivementModel.cs" />
-    <Compile Include="AdmissionCriteriaModel.cs" />
-    <Compile Include="AffilationModel.cs" />
-    <Compile Include="CertificateModel.cs" />
-    <Compile Include="FeedbackModel.cs" />
     <Compile Include="ImageModel.cs" />
-    <Compile Include="InspectionModel.cs" />
-    <Compile Include="InstituteDetailModel.cs" />
-    <Compile Include="ITIResultModel.cs" />
     <Compile Include="LoginModel.cs" />
-    <Compile Include="MarkModel.cs" />
-    <Compile Include="NewsTableModel.cs" />
-    <Compile Include="PlacementTableModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaffAttendenceModel.cs" />
     <Compile Include="StaffModel.cs" />
     <Compile Include="StudentModel.cs" />
-    <Compile Include="TradeAffiliatedModel.cs" />
-    <Compile Include="TradeAffiliationSouModel.cs" />
-    <Compile Include="TradeAttendenceModel.cs" />
-    <Compile Include="TraineeModel.cs" />
     <Compile Include="VisitorModel.cs" />
   </ItemGroup>
   <ItemGroup>

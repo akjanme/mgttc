@@ -137,14 +137,13 @@
     <Compile Include="Areas\Admin\Controllers\ImageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\StudentController.cs" />
     <Compile Include="Controllers\AboutInstituteController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\FacilitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\SataffStudentController.cs" />
+    <Compile Include="Controllers\StaffStudentController.cs" />
     <Compile Include="Filter\SessionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2200,8 +2199,6 @@
     <Content Include="Areas\Admin\Views\Manage\DelectReportCard.cshtml" />
     <Content Include="Areas\Admin\Views\Manage\Result.cshtml" />
     <Content Include="Areas\Admin\Views\Manage\admin.cshtml" />
-    <Content Include="Areas\Admin\Views\Student\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Student\Create.cshtml" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -2252,6 +2249,11 @@
     <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\StaffCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\StudentList.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\NonTeachingStaff.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\TeachingStaff.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\StudentCreate.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -3636,19 +3638,18 @@
     <Content Include="Views\Facilities\Library.cshtml" />
     <Content Include="Views\Facilities\Laboratory.cshtml" />
     <Content Include="Views\Facilities\ComputerLab.cshtml" />
-    <Content Include="Views\SataffStudent\Staff.cshtml" />
-    <Content Include="Views\SataffStudent\NonTeachingStaff.cshtml" />
-    <Content Include="Views\SataffStudent\StudentList.cshtml" />
-    <Content Include="Views\SataffStudent\FacultyOfEducation.cshtml" />
-    <Content Include="Views\SataffStudent\StudentCategory.cshtml" />
-    <Content Include="Views\SataffStudent\Course.cshtml" />
+    <Content Include="Views\StaffStudent\NonTeachingStaff.cshtml" />
+    <Content Include="Views\StaffStudent\StudentList.cshtml" />
+    <Content Include="Views\StaffStudent\FacultyOfEducation.cshtml" />
+    <Content Include="Views\StaffStudent\StudentCategory.cshtml" />
+    <Content Include="Views\StaffStudent\Course.cshtml" />
+    <Content Include="Views\StaffStudent\TeachingStaff.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\AAboutInstitute\" />
     <Folder Include="Areas\Admin\Views\AFacilities\" />
-    <Folder Include="Areas\Admin\Views\AStaffStundent\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -17,12 +17,12 @@ namespace ITI.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(LoginModel loginModel)
+        public ActionResult Login(Login login)
         {
             if (ModelState.IsValid)
             {
-                ITIDataEntities iTIDataEntities = new ITIDataEntities();
-                var user = iTIDataEntities.Logins.Where(x => x.user_name == loginModel.User_Name && x.password == loginModel.Password);
+                MGTTCEntities mGTTCEntities = new MGTTCEntities();
+                var user = mGTTCEntities.Logins.Where(x => x.user_name == login.user_name && x.password == login.password);
                 if(user != null)
                 {
                     Session["UserName"] = user.FirstOrDefault().user_name; 
@@ -33,7 +33,7 @@ namespace ITI.Web.Controllers
                     ModelState.AddModelError("", "Invalid login credentials.");
                 }
             }
-            return View(loginModel);
+            return View(login);
         }
         public ActionResult LogOut()
         {

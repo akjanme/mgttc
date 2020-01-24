@@ -1,42 +1,50 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ITI.Data;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using ITI.Data;
+
 
 namespace ITI.Repository.Repository
 {
     public class StaffRepository
     {
-        protected ITIDataEntities iTIDataEntities;
+        protected MGTTCEntities mGTTCEntities;
+
         public StaffRepository()
         {
-            iTIDataEntities = new ITIDataEntities();
+            mGTTCEntities = new MGTTCEntities();
         }
-        public List<StaffTable> GetStaff()
+
+        public List<Staff> GetStaffs()
         {
-            return iTIDataEntities.StaffTables.ToList();
+            return mGTTCEntities.Staffs.ToList();
         }
-        public StaffTable GetStaffById(int id)
+        public Staff GetStaffById(int id)
         {
-            return iTIDataEntities.StaffTables.FirstOrDefault(x => x.ID == id);
+            return mGTTCEntities.Staffs.FirstOrDefault(x => x.ID == id);
         }
-        public StaffTable InsertStaff(StaffTable staff)
+        public Staff InsertStaff(Staff staff)
         {
-            var inserted = iTIDataEntities.StaffTables.Add(staff);
-            iTIDataEntities.SaveChanges();
+            var inserted = mGTTCEntities.Staffs.Add(staff);
+            mGTTCEntities.SaveChanges();
             return inserted;
         }
-        public StaffTable UpdateStaff(StaffTable staff)
+        public Staff UpdateStaff(Staff staff)
         {
-            iTIDataEntities.Entry(staff).State = EntityState.Modified;
-            iTIDataEntities.SaveChanges();
+            mGTTCEntities.Entry(staff).State = EntityState.Modified;
+            mGTTCEntities.SaveChanges();
             return staff;
         }
-        public void DeleteStaff(int id)
+        public void DelectStaffs(int id)
         {
-            var StaffTechnical = iTIDataEntities.StaffTables.FirstOrDefault(x => x.ID == id);
-            iTIDataEntities.StaffTables.Remove(StaffTechnical);
-            iTIDataEntities.SaveChanges();
+            var staff = mGTTCEntities.Staffs.FirstOrDefault(x => x.ID == id);
+            mGTTCEntities.Staffs.Remove(staff);
+            mGTTCEntities.SaveChanges();
         }
+
+
     }
 }

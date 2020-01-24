@@ -10,28 +10,10 @@ using ITI.Web.Filter;
 
 namespace ITI.Web.Areas.Admin.Controllers
 {
-    [SessionFilter]
+    
     public class ManageController : Controller
     {
-        // GET: Admin/Manage 
-        //public ActionResult AddReportCard()
-        //{
-        //    ViewBag.Category = StaticData.GetCategories();
-        //    ViewBag.Trade = StaticData.GetTrade();
-        //    ViewBag.Unit = StaticData.GetUnit();
-        //    ViewBag.Session = StaticData.GetSession();
-        //    return View();
-        //} 
-        
-        //public ActionResult DelectReportCard()
-        //{
-        //    ViewBag.Category = StaticData.GetCategories();
-        //    ViewBag.Trade = StaticData.GetTrade();
-        //    ViewBag.Unit = StaticData.GetUnit();
-        //    ViewBag.Session = StaticData.GetSession();
-        //    return View();
-        //} 
-        public ActionResult Index()
+        public ActionResult admin()
         {
             return View();
         }

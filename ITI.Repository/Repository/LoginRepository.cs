@@ -10,18 +10,18 @@ namespace ITI.Repository.Repository
 {
     public class LoginRepository
     {
-        protected ITIDataEntities iTIDataEntities;
+        protected MGTTCEntities mGTTCEntities;
         public LoginRepository()
         {
-            iTIDataEntities = new ITIDataEntities();
+            mGTTCEntities = new MGTTCEntities();
         }
         public List<Login> GetLogins()
         {
-            return iTIDataEntities.Logins.ToList();
+            return mGTTCEntities.Logins.ToList();
         }
         public Login GetLoginById(int id)
         {
-            return iTIDataEntities.Logins.FirstOrDefault(x => x.id == id);
+            return mGTTCEntities.Logins.FirstOrDefault(x => x.id == id);
         }
     }
 }

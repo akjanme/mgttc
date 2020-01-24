@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ITI.Models.StaffModel>
+<div class="content">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="row text-right">
+                <div class="col-lg-11">
+
+                </div>
+                <div class="col-lg-1">
+                    <a href="/admin/AStaffStudent/StudentCreate" class="btn btn-primary btn-lg">Create</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-body">
+
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Staff Name</th>
+                                <th>Father Name</th>
+                                <th>Date of Birth</th>
+                            </tr>
+
+                            @foreach (var student in Model)
+                            {
+                                <tr>
+                                    <td>@student.StaffName</td>
+                                    <td>@student.FatherName</td>
+                                    <td>@student.DateOfBirth</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
