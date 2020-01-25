@@ -21,7 +21,7 @@ namespace ITI.Data
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public Nullable<System.DateTime> DateOfJoin { get; set; }
         public Nullable<int> Salary { get; set; }
-        public Nullable<int> PanNumber { get; set; }
+        public string PanNumber { get; set; }
         public Nullable<int> AadharNumber { get; set; }
         public string Experience { get; set; }
         public string StaffType { get; set; }

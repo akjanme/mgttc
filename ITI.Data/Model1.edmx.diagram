@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f749396c5cff47d7980ba9b785917360" Name="Diagram1">
         <EntityTypeShape EntityType="MGTTCModel.Login" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MGTTCModel.Staff" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="MGTTCModel.Student" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MGTTCModel.Staff" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -19,8 +19,8 @@
                                 <th>Name</th>
                                 <th>Father Name</th>
                                 <th>Date of Birth</th>
-                                <th></th>
-                                <th></th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
 
                             @foreach (var student in Model)
@@ -29,8 +29,8 @@
                                     <td>@student.Sname</td>
                                     <td>@student.FatherName</td>
                                     <td>@student.Dob</td>
-                                    <td><a href="/admin/AStaffStudent/StudentCreate?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                    <td><a href="/admin/AStaffStudent/DeleteStudent?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                    <td><a href="/Admin/AStaffStundent/StudentCreate?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                    <td><a href="/admin/AStaffStundent/DeleteStudent?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
 
                                 </tr>
                             }

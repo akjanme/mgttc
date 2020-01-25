@@ -44,3 +44,4 @@ H:\project\MgTTC\ITI.Data\bin\Debug\System.Web.WebPages.Razor.xml
 H:\project\MgTTC\ITI.Data\obj\Debug\ITI.Data.csproj.CopyComplete
 H:\project\MgTTC\ITI.Data\obj\Debug\ITI.Data.dll
 H:\project\MgTTC\ITI.Data\obj\Debug\ITI.Data.pdb
+H:\project\mgttc\ITI.Data\obj\Debug\ITI.Data.csprojAssemblyReference.cache

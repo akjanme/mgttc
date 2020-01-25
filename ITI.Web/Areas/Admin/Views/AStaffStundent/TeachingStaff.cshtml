@@ -25,14 +25,16 @@
 
                             @foreach (var student in Model)
                             {
-                                <tr>
-                                    <td>@student.StaffName</td>
-                                    <td>@student.FatherName</td>
-                                    <td>@student.DateOfBirth</td>
-                                    <td><a href="/admin/AStaffStudent/StaffCreate?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                    <td><a href="/admin/AStaffStudent/DeleteStaff?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
-
-                                </tr>
+                                if (student.StaffType == "Teaching")
+                                {
+                                    <tr>
+                                        <td>@student.StaffName</td>
+                                        <td>@student.FatherName</td>
+                                        <td>@student.DateOfBirth</td>
+                                        <td><a href="/admin/AStaffStundent/StaffCreate?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                        <td><a href="/admin/AStaffStundent/DeleteStaff?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                    </tr>
+                                }
                             }
                         </table>
                     </div>
