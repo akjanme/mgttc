@@ -28,5 +28,6 @@ namespace ITI.Data
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<ImageGallery> ImageGalleries { get; set; }
     }
 }

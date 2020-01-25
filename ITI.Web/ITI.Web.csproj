@@ -3644,6 +3644,7 @@
     <Content Include="Views\StaffStudent\StudentCategory.cshtml" />
     <Content Include="Views\StaffStudent\Course.cshtml" />
     <Content Include="Views\StaffStudent\TeachingStaff.cshtml" />
+    <Content Include="Views\Home\ImageGelary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

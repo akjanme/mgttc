@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="MGTTCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ImageGallery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ImagDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="id" />
@@ -52,6 +60,7 @@
           <Property Name="Session" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <EntityContainer Name="MGTTCModelStoreContainer">
+          <EntitySet Name="ImageGallery" EntityType="Self.ImageGallery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
@@ -64,6 +73,7 @@
           <EntitySet Name="Logins" EntityType="MGTTCModel.Login" />
           <EntitySet Name="Students" EntityType="MGTTCModel.Student" />
           <EntitySet Name="Staffs" EntityType="MGTTCModel.Staff" />
+          <EntitySet Name="ImageGalleries" EntityType="MGTTCModel.ImageGallery" />
         </EntityContainer>
         <EntityType Name="Login">
           <Key>
@@ -110,6 +120,14 @@
           <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SubjectNumFirst" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="SubjectNumSecond" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ImageGallery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ImagDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -163,6 +181,15 @@
                 <ScalarProperty Name="FatherName" ColumnName="FatherName" />
                 <ScalarProperty Name="StaffName" ColumnName="StaffName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageGalleries">
+            <EntityTypeMapping TypeName="MGTTCModel.ImageGallery">
+              <MappingFragment StoreEntitySet="ImageGallery">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImagDesc" ColumnName="ImagDesc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

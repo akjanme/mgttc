@@ -11,8 +11,8 @@
                     <label for="user_name"><b> User Name :</b></label>
                 </div>
                 <div class="col-md-5 form-group">
-                    @Html.TextBoxFor(x => x.User_Name, new { @class = "form-control" }) 
-                    @Html.ValidationMessageFor(x => x.User_Name, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(x => x.user_name, new { @class = "form-control" }) 
+                    @Html.ValidationMessageFor(x => x.user_name, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-2 form-group"></div>
             </div>
@@ -22,8 +22,8 @@
                     <label for="password"><b>PassWord :</b></label>
                 </div>
                 <div class="col-md-5 form-group">
-                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(x => x.password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.password, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-2 form-group"></div>
             </div>

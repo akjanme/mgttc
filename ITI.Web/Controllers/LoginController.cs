@@ -26,7 +26,7 @@ namespace ITI.Web.Controllers
                 if(user != null)
                 {
                     Session["UserName"] = user.FirstOrDefault().user_name; 
-                    return Redirect("/Admin/Manage/Index");
+                    return Redirect("/Admin/Manage/Admin");
                 }
                 else
                 {

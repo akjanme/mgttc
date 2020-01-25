@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITI.Models
 {
-    class LoginModel
+    public class LoginModel
     {
         public int id { get; set; }
         public string user_name { get; set; }
