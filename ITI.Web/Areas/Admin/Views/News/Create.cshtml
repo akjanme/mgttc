@@ -1,6 +1,6 @@
 ﻿@model ITI.Models.NewsTableModel
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 box box-info">
+    <div class="col-lg-12 col-md-12 col-md-12 box box-info">
         <div class="col-md-6">
             <!-- Horizontal Form -->
             <div class="box-header with-border">
@@ -13,22 +13,22 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="Name" class="col-sm-4 control-label">News Date</label>
-                        <div class="col-sm-8">
+                        <label for="Name" class="col-md-4 control-label">News Date</label>
+                        <div class="col-md-8">
                             @Html.TextBoxFor(x => x.NewsDate, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.NewsDate, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="Name" class="col-sm-4 control-label">News HeadLine</label>
-                        <div class="col-sm-8">
+                        <label for="Name" class="col-md-4 control-label">News HeadLine</label>
+                        <div class="col-md-8">
                             @Html.TextBoxFor(x => x.NewsHeadLine, new { @class = "form-control", @style = " width: 500px;", @cols = 30, @rows = 3 })
                             @Html.ValidationMessageFor(x => x.NewsHeadLine, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="Name" class="col-sm-4 control-label">News Text</label>
-                        <div class="col-sm-8">
+                        <label for="Name" class="col-md-4 control-label">News Text</label>
+                        <div class="col-md-8">
                             @Html.TextBoxFor(x => x.NewsText, new { @class = "form-control", @style = " width: 500px;", @cols = 35, @rows = 5 })
                             @Html.ValidationMessageFor(x => x.NewsText, "", new { @class = "text-danger" })
                         </div>
@@ -50,3 +50,6 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $('.datepicker').datepicker(); //Initialise any date pickers
+</script>

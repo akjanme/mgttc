@@ -1,47 +1,22 @@
 ﻿<div class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-5">
                 <p>
-                    <b>Mahatma Gandhi TTC</b>
+                    <b>Mahatma Gandhi Teacher Training College</b>
                     <br /><br />
-                    Mandwar Road, Mahwa, Dist-Dausa, Rajasthan
+                    Mandawar  road, Mahwa
+                    <br/> Dist-Dausa, Rajasthan
                 </p>
+            </div> 
+            <div class="col-lg-4">
+               
             </div>
             <div class="col-lg-3">
-                <h3 class="footer-heading">ABOUT INSTITUTE</h3>
+                <h3 class="footer-heading"><span>Contact</span></h3>
                 <ul class="list-unstyled">
-                    <li><a href="~/AboutInstitute/InstituteDetail">Institute Detail</a></li>
-                    <li><a href="~/AboutInstitute/Infrastructure">Infrastructure</a></li>
-                    <li><a href="~/AboutInstitute/LocationAffiliation">Location Affiliation</a></li>
-                    <li><a href="~/AboutInstitute/ManagementCommittee">Management Committee</a></li>
-                    <li><a href="~/AboutInstitute/NOCDetail">NOC Detail</a></li>
-                    <li><a href="~/AboutInstitute/AffiliationDetail">Affiliation Detail</a></li>
-                    <li><a href="~/AboutInstitute/AimsAndObjectives">Aims And Objective</a></li>
-                    <li><a href="~/AboutInstitute/AuditReport">Audit Report</a></li>
-                    <li><a href="~/AboutInstitute/ApplicationRegistration">Application Registration</a></li>
-                    <li><a href="~/AboutInstitute/TeachingSchool">Teacher School</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3">
-                <h3 class="footer-heading">FACILITIES</h3>
-                <ul class="list-unstyled">
-                    <li><a href="~/Facilities/SportsFacilities">Sports Facilities</a></li>
-                    <li><a href="~/Facilities/Library">Library</a></li>
-                    <li><a href="~/Facilities/Laboratory">Laboratory</a></li>
-                    <li><a href="~/Facilities/ComputerLab">Computer Lab Staff</a></li>
-                    <li><a href="~/Home/ImageGelary">Image Gelary</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3">
-                <h3 class="footer-heading">STAFF & STUDENT</h3>
-                <ul class="list-unstyled">
-                    <li><a href="~/StaffStudent/TeachingStaff">Teaching Staff</a></li>
-                    <li><a href="~/StaffStudent/NonTeachingStaff">Non Teaching Staff</a></li>
-                    <li><a href="~/StaffStudent/StudentList">Student List</a></li>
-                    <li><a href="~/StaffStudent/FacultyOfEducation">Faculty Of Education</a></li>
-                    <li><a href="~/StaffStudent/StudentCategory">Student Category</a></li>
-                    <li><a href="~/StaffStudent/Course">Course</a></li>
+                    <li><a href="~/ContactUs/ContactUs"><span style="color:white">Contact Us</span></a></li>
+                    <li><a href="~/ContactUs/HowToReach"><span style="color:white">How To Reach</span></a></li> 
                 </ul>
             </div>
         </div>
@@ -50,13 +25,15 @@
                 <div class="copyright">
                     <p>
                         Website Copyrighted &copy; All Rights reserved. <br />
-                        Powered by: VivoSoftware <br />
-                        Last Updated on -
-                        <script>document.write(new Date().getDate() + '-' + new Date().getMonth() + 1 + '-' + new Date().getFullYear());</script>
+                        Powered by: Kincid <br />
+                        Last Updated on - <span id="getdate"></span>
                     </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<script>
+    document.getElementById('getdate').innerText = new Date(Date.now()).toLocaleDateString();
+    //document.write(new Date().getDate() + '-' + new Date().getMonth() + 1 + '-' + new Date().getFullYear());
+</script>

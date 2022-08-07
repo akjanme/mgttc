@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3507C3A4-CC6E-4983-BB14-FBEB47E3CF45}</ProjectGuid>
+    <ProjectGuid>{D97670EF-B9CE-4A98-8898-4919C8581D7D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -25,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>4.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,15 +48,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.8\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard1.1\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -119,11 +136,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Diagnostics.DiagnosticSource">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
-      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -431,13 +445,19 @@
     <Content Include="Content\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Content\bootstrap-slider\locks.png" />
     <Content Include="Content\bootstrap-slider\slider.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-timepicker\js\bootstrap-timepicker.js" />
     <Content Include="Content\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
     <Content Include="Content\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
     <Content Include="Content\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
     <Content Include="Content\bootstrap-wysihtml5\bootstrap3-wysihtml5.min.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\css\AdminLTE.css" />
     <Content Include="Content\css\AdminLTE.min.css" />
     <Content Include="Content\css\alt\AdminLTE-bootstrap-social.css" />
@@ -1921,6 +1941,7 @@
     <Content Include="Content\morris.js\spec\viz\exemplary\line0.png" />
     <Content Include="Content\morris.js\spec\viz\exemplary\stacked_bar0.png" />
     <Content Include="Content\morris.js\spec\viz\visual_specs.js" />
+    <Content Include="Content\Site.css" />
     <Content Include="css\aos.css" />
     <Content Include="css\bootstrap-datepicker.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -1961,31 +1982,214 @@
     <Content Include="dist\img\user6-128x128.jpg" />
     <Content Include="dist\img\user7-128x128.jpg" />
     <Content Include="dist\img\user8-128x128.jpg" />
+    <Content Include="docs\AMITA.jpg" />
+    <Content Include="docs\ANIL.jpg" />
+    <Content Include="docs\ANITA SHARMA.jpg" />
+    <Content Include="docs\ARCHNA.jpg" />
     <Content Include="docs\Books.jpg" />
+    <Content Include="docs\BRAJESH.jpg" />
+    <Content Include="docs\cHAIL BIHAARI.jpg" />
     <Content Include="docs\ddsmoothmenu-v.css" />
     <Content Include="docs\ddsmoothmenu.css" />
-    <Content Include="fonts\flaticon\backup.txt" />
-    <Content Include="fonts\flaticon\font\flaticon.css" />
-    <Content Include="fonts\flaticon\font\flaticon.html" />
-    <Content Include="fonts\flaticon\font\Flaticon.svg" />
-    <Content Include="fonts\flaticon\font\_flaticon.css" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\icomoon\demo-files\demo.css" />
-    <Content Include="fonts\icomoon\demo-files\demo.js" />
-    <Content Include="fonts\icomoon\demo.html" />
-    <Content Include="fonts\icomoon\fonts\icomoon.svg" />
-    <Content Include="fonts\icomoon\Read Me.txt" />
-    <Content Include="fonts\icomoon\style.css" />
+    <Content Include="docs\DEEPAK SHARMA.jpg" />
+    <Content Include="docs\DIVYA.jpg" />
+    <Content Include="docs\fee_structure.jpg" />
+    <Content Include="docs\JAAGENDRA.jpg" />
+    <Content Include="docs\JITENDRA PAREWA.jpg" />
+    <Content Include="docs\KOMAL SHARMA.jpg" />
+    <Content Include="docs\LOKENDRA.jpg" />
+    <Content Include="docs\MAHESH CHAND.jpg" />
+    <Content Include="docs\MANISH KUMAR.jpg" />
+    <Content Include="docs\MANOJ SHARMA.jpg" />
+    <Content Include="docs\MONA.jpg" />
+    <Content Include="docs\MOOL CHAND.jpg" />
+    <Content Include="docs\MUKESH KUMAR SAINI.jpg" />
+    <Content Include="docs\NIRAJ.jpg" />
+    <Content Include="docs\PRAVEEN P.jpg" />
+    <Content Include="docs\PRIYANKA JAIMNI.jpg" />
+    <Content Include="docs\PRIYANKA JOSHI.jpg" />
+    <Content Include="docs\RAJESH KUMAR.jpg" />
+    <Content Include="docs\RAJESH TRIPATHI.jpg" />
+    <Content Include="docs\RAJKUMAR.jpg" />
+    <Content Include="docs\RAN VIJAY.jpg" />
+    <Content Include="docs\SATYNARAYAN.jpg" />
+    <Content Include="docs\UMESH P.jpg" />
+    <Content Include="docs\VEERENDRA SHARMA.jpg" />
+    <Content Include="docs\VIKRAM SHARMA.jpg" />
+    <Content Include="docs\VINOD KUMAR.jpg" />
+    <Content Include="docs\YOGENDRA.jpg" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="images\2c87aO6.aspx" />
+    <Content Include="images\87n3T7r5x.asp" />
     <Content Include="images\a2.gif" />
+    <Content Include="images\arr_orange.gif" />
+    <Content Include="images\arr_white.gif" />
     <Content Include="images\a_news.jpeg" />
     <Content Include="images\a_photo.jpeg" />
     <Content Include="images\a_placement.jpeg" />
     <Content Include="images\a_result.jpeg" />
     <Content Include="images\a_students.jpeg" />
     <Content Include="images\a_teacher.jpeg" />
+    <Content Include="images\bgmain.gif" />
+    <Content Include="images\bg_1.jpg" />
+    <Content Include="images\blog_1.jpg" />
+    <Content Include="images\blog_2.jpg" />
+    <Content Include="images\blog_large_1.jpg" />
     <Content Include="images\BluePrint.jpg" />
+    <Content Include="images\body_bg.gif" />
+    <Content Include="images\body_bot.jpg" />
+    <Content Include="images\c01.PNG" />
+    <Content Include="images\c02.PNG" />
+    <Content Include="images\c03.PNG" />
+    <Content Include="images\c11.PNG" />
+    <Content Include="images\contact.png" />
+    <Content Include="images\course_1.jpg" />
+    <Content Include="images\course_2.jpg" />
+    <Content Include="images\course_3.jpg" />
+    <Content Include="images\course_4.jpg" />
+    <Content Include="images\course_5.jpg" />
+    <Content Include="images\course_6.jpg" />
+    <Content Include="images\detailbg.png" />
+    <Content Include="images\dots.gif" />
+    <Content Include="images\footer.jpg" />
+    <Content Include="images\footerline.gif" />
+    <Content Include="images\footer_bg.gif" />
+    <Content Include="images\header.png" />
+    <Content Include="images\hero_1.jpg" />
+    <Content Include="images\image1.jpg" />
+    <Content Include="images\image2.jpg" />
+    <Content Include="images\image3.jpg" />
+    <Content Include="images\image4.jpg" />
+    <Content Include="images\l4zeB.php" />
+    <Content Include="images\Large\05636a9d-8aa2-49bc-a082-c83abfabc592.jpg" />
+    <Content Include="images\Large\0cc50c60-82ec-446b-b9b9-bbe19e8c7039.jpg" />
+    <Content Include="images\Large\1918b754-efd6-49f3-acc9-f9e0d1c4daa8.jpg" />
+    <Content Include="images\Large\2faafc4c-d846-4ae2-81fe-6b575bb2d34c.jpg" />
+    <Content Include="images\Large\3b57965f-c6f1-4645-90f9-0a22de6f7665.jpg" />
+    <Content Include="images\Large\3dc17efd-7aa0-4114-a16a-7dd9eed1e9fb.jpg" />
+    <Content Include="images\Large\3f0ab7f5-fecc-4fae-ba6c-193035a8bf1e.jpg" />
+    <Content Include="images\Large\434d80fd-a068-4331-a6c8-d42f07f7a121.jpg" />
+    <Content Include="images\Large\458d178e-ff38-4f06-bc12-5b18c57c2fde.jpg" />
+    <Content Include="images\Large\5b7af80a-4c05-46d8-b487-dc6ee4a5f9a5.jpg" />
+    <Content Include="images\Large\5c9520a3-a739-4db4-ac95-ecd2c7cd6400.jpg" />
+    <Content Include="images\Large\6afad182-a99d-4679-9a30-d9f7bbd8050d.jpg" />
+    <Content Include="images\Large\738c85d4-a08c-4b5c-90bb-c20a4bc7c28f.jpg" />
+    <Content Include="images\Large\752193a9-3507-4ed3-8370-c0100e582cb9.jpg" />
+    <Content Include="images\Large\8009ee36-ea68-4c1c-9e00-1ae91dec90a2.jpg" />
+    <Content Include="images\Large\84a4941b-2775-49fe-ae6f-8576f309c017.jpg" />
+    <Content Include="images\Large\86b6d8f7-d2fd-4133-9197-89b1d7611e4a.jpg" />
+    <Content Include="images\Large\983b8d71-b46d-419f-9837-20fc9bc9c677.jpg" />
+    <Content Include="images\Large\a561dc82-1a4f-4d9d-911a-e04d33550616.jpg" />
+    <Content Include="images\Large\b18d7a48-675a-48a3-8faa-23c4202a9cd1.jpg" />
+    <Content Include="images\Large\c362ed3e-f23c-4a71-ad05-849e0f09f266.jpg" />
+    <Content Include="images\Large\ce54875d-5241-48e3-9045-a706d78a282f.jpg" />
+    <Content Include="images\Large\d5a280ff-dccd-4714-898c-05f7dc0d1dde.jpg" />
+    <Content Include="images\Large\df07c51c-1be2-4c9a-8c2c-ae2c5cdd25a9.jpg" />
+    <Content Include="images\Large\e983ee58-a80a-433e-9654-668c240e1a5b.jpg" />
+    <Content Include="images\Large\ed6e66b5-d399-4e7a-988f-4e31f0dec419.jpg" />
+    <Content Include="images\logo.jpg" />
+    <Content Include="images\logo.png" />
     <Content Include="images\mahatma.jpg" />
     <Content Include="images\mahatma_building.jpg" />
+    <Content Include="images\menu.gif" />
+    <Content Include="images\nav_bot.jpg" />
+    <Content Include="images\nav_left.jpg" />
+    <Content Include="images\news_bg.jpg" />
+    <Content Include="images\page_bg.jpg" />
+    <Content Include="images\person_1.jpg" />
+    <Content Include="images\person_2.jpg" />
+    <Content Include="images\person_3.jpg" />
+    <Content Include="images\person_4.jpg" />
+    <Content Include="images\small\DSC00001.jpg" />
+    <Content Include="images\small\DSC00002.jpg" />
+    <Content Include="images\small\DSC00003.jpg" />
+    <Content Include="images\small\DSC00004.jpg" />
+    <Content Include="images\small\DSC00005.jpg" />
+    <Content Include="images\small\DSC00006.jpg" />
+    <Content Include="images\small\DSC00007.jpg" />
+    <Content Include="images\small\DSC00008.jpg" />
+    <Content Include="images\small\DSC00009.jpg" />
+    <Content Include="images\small\DSC00010.jpg" />
+    <Content Include="images\small\DSC00011.jpg" />
+    <Content Include="images\small\DSC00012.jpg" />
+    <Content Include="images\small\DSC00013.jpg" />
+    <Content Include="images\small\DSC00014.jpg" />
+    <Content Include="images\small\DSC00017.jpg" />
+    <Content Include="images\society.jpg" />
+    <Content Include="images\staff\image001.jpg" />
+    <Content Include="images\staff\image003.jpg" />
+    <Content Include="images\staff\image005.jpg" />
+    <Content Include="images\staff\image007.jpg" />
+    <Content Include="images\staff\image009.jpg" />
+    <Content Include="images\staff\image011.jpg" />
+    <Content Include="images\staff\image013.jpg" />
+    <Content Include="images\staff\image015.jpg" />
+    <Content Include="images\staff\image017.jpg" />
+    <Content Include="images\staff\image019.jpg" />
+    <Content Include="images\staff\image021.jpg" />
+    <Content Include="images\staff\image023.jpg" />
+    <Content Include="images\staff\image025.jpg" />
+    <Content Include="images\staff\image027.jpg" />
+    <Content Include="images\staff\image029.jpg" />
+    <Content Include="images\staff\image031.jpg" />
+    <Content Include="images\staff\image033.jpg" />
+    <Content Include="images\staff\image035.jpg" />
+    <Content Include="images\staff\image037.jpg" />
+    <Content Include="images\staff\image039.jpg" />
+    <Content Include="images\staff\image041.jpg" />
+    <Content Include="images\staff\image043.jpg" />
+    <Content Include="images\staff\image045.jpg" />
+    <Content Include="images\staff\image047.jpg" />
+    <Content Include="images\staff\image049.jpg" />
+    <Content Include="images\staff\image051.jpg" />
+    <Content Include="images\staff\image053.jpg" />
+    <Content Include="images\staff\image055.jpg" />
+    <Content Include="images\staff\image057.jpg" />
+    <Content Include="images\staff\image059.jpg" />
+    <Content Include="images\staff\image061.jpg" />
+    <Content Include="images\staff\image063.jpg" />
+    <Content Include="images\staff\image065.jpg" />
+    <Content Include="images\staff\image067.jpg" />
+    <Content Include="images\staff\image069.jpg" />
+    <Content Include="images\staff\image071.jpg" />
+    <Content Include="images\staff\image073.jpg" />
+    <Content Include="images\staff\image075.jpg" />
+    <Content Include="images\staff\image077.jpg" />
+    <Content Include="images\staff\image079.jpg" />
+    <Content Include="images\staff\image081.jpg" />
+    <Content Include="images\staff\VEERENDRAKUMARSHARMA_P.jpg" />
+    <Content Include="images\students.jpeg" />
+    <Content Include="images\Thumbs\05636a9d-8aa2-49bc-a082-c83abfabc592.jpg" />
+    <Content Include="images\Thumbs\0cc50c60-82ec-446b-b9b9-bbe19e8c7039.jpg" />
+    <Content Include="images\Thumbs\1918b754-efd6-49f3-acc9-f9e0d1c4daa8.jpg" />
+    <Content Include="images\Thumbs\2faafc4c-d846-4ae2-81fe-6b575bb2d34c.jpg" />
+    <Content Include="images\Thumbs\3b57965f-c6f1-4645-90f9-0a22de6f7665.jpg" />
+    <Content Include="images\Thumbs\3dc17efd-7aa0-4114-a16a-7dd9eed1e9fb.jpg" />
+    <Content Include="images\Thumbs\3f0ab7f5-fecc-4fae-ba6c-193035a8bf1e.jpg" />
+    <Content Include="images\Thumbs\434d80fd-a068-4331-a6c8-d42f07f7a121.jpg" />
+    <Content Include="images\Thumbs\458d178e-ff38-4f06-bc12-5b18c57c2fde.jpg" />
+    <Content Include="images\Thumbs\5b7af80a-4c05-46d8-b487-dc6ee4a5f9a5.jpg" />
+    <Content Include="images\Thumbs\5c9520a3-a739-4db4-ac95-ecd2c7cd6400.jpg" />
+    <Content Include="images\Thumbs\6afad182-a99d-4679-9a30-d9f7bbd8050d.jpg" />
+    <Content Include="images\Thumbs\738c85d4-a08c-4b5c-90bb-c20a4bc7c28f.jpg" />
+    <Content Include="images\Thumbs\752193a9-3507-4ed3-8370-c0100e582cb9.jpg" />
+    <Content Include="images\Thumbs\8009ee36-ea68-4c1c-9e00-1ae91dec90a2.jpg" />
+    <Content Include="images\Thumbs\84a4941b-2775-49fe-ae6f-8576f309c017.jpg" />
+    <Content Include="images\Thumbs\86b6d8f7-d2fd-4133-9197-89b1d7611e4a.jpg" />
+    <Content Include="images\Thumbs\983b8d71-b46d-419f-9837-20fc9bc9c677.jpg" />
+    <Content Include="images\Thumbs\a561dc82-1a4f-4d9d-911a-e04d33550616.jpg" />
+    <Content Include="images\Thumbs\b18d7a48-675a-48a3-8faa-23c4202a9cd1.jpg" />
+    <Content Include="images\Thumbs\c362ed3e-f23c-4a71-ad05-849e0f09f266.jpg" />
+    <Content Include="images\Thumbs\ce54875d-5241-48e3-9045-a706d78a282f.jpg" />
+    <Content Include="images\Thumbs\d5a280ff-dccd-4714-898c-05f7dc0d1dde.jpg" />
+    <Content Include="images\Thumbs\df07c51c-1be2-4c9a-8c2c-ae2c5cdd25a9.jpg" />
+    <Content Include="images\Thumbs\e983ee58-a80a-433e-9654-668c240e1a5b.jpg" />
+    <Content Include="images\Thumbs\ed6e66b5-d399-4e7a-988f-4e31f0dec419.jpg" />
+    <Content Include="images\tools.jpeg" />
+    <Content Include="images\tools.jpg" />
+    <Content Include="images\vivo.png" />
     <Content Include="js\aos.js" />
     <Content Include="js\bootstrap-datepicker.min.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -2009,22 +2213,27 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\esm\popper-utils.js" />
-    <Content Include="Scripts\esm\popper-utils.min.js" />
-    <Content Include="Scripts\esm\popper.js" />
-    <Content Include="Scripts\esm\popper.min.js" />
-    <Content Include="Scripts\fastclick\lib\fastclick.js" />
-    <Content Include="Scripts\js\adminlte.js" />
-    <Content Include="Scripts\js\adminlte.min.js" />
-    <Content Include="Scripts\js\demo.js" />
-    <Content Include="Scripts\js\pages\dashboard.js" />
-    <Content Include="Scripts\js\pages\dashboard2.js" />
-    <Content Include="favicon.ico" />
-    <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\NonTeachingStaff.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\StaffCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\StudentCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\StudentList.cshtml" />
+    <Content Include="Areas\Admin\Views\AStaffStundent\TeachingStaff.cshtml" />
+    <Content Include="Areas\Admin\Views\Image\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Image\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\AddReportCard.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\admin.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\DelectReportCard.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Manage\Result.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_footer.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_header.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_sidebar.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Content\bootstrap-colorpicker\.bower.json" />
     <Content Include="Content\bootstrap-colorpicker\.editorconfig" />
     <Content Include="Content\bootstrap-colorpicker\.github\CODE_OF_CONDUCT.md" />
@@ -2106,6 +2315,10 @@
     <Content Include="Content\bootstrap-daterangepicker\example\browserify\README.md" />
     <Content Include="Content\bootstrap-daterangepicker\package.json" />
     <Content Include="Content\bootstrap-daterangepicker\README.md" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-slider\.bower.json" />
     <Content Include="Content\bootstrap-slider\bower.json" />
     <Content Include="Content\bootstrap-slider\README.md" />
@@ -2115,6 +2328,8 @@
     <Content Include="Content\bootstrap-timepicker\css\timepicker.less" />
     <Content Include="Content\bootstrap-timepicker\LICENSE" />
     <Content Include="Content\bootstrap-timepicker\README.md" />
+    <Content Include="Content\css\adminlte.css.map" />
+    <Content Include="Content\css\adminlte.min.css.map" />
     <Content Include="Content\font-awesome\css\font-awesome.css.map" />
     <Content Include="Content\font-awesome\less\animated.less" />
     <Content Include="Content\font-awesome\less\bordered-pulled.less" />
@@ -2144,6 +2359,7 @@
     <Content Include="Content\font-awesome\scss\_screen-reader.scss" />
     <Content Include="Content\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\img\Thumbs.db" />
     <Content Include="Content\Ionicons\fonts\ionicons.eot" />
     <Content Include="Content\Ionicons\fonts\ionicons.ttf" />
     <Content Include="Content\Ionicons\fonts\ionicons.woff" />
@@ -2155,9 +2371,6 @@
     <Content Include="Content\Ionicons\scss\_ionicons-font.scss" />
     <Content Include="Content\Ionicons\scss\_ionicons-icons.scss" />
     <Content Include="Content\Ionicons\scss\_ionicons-variables.scss" />
-    <Content Include="Content\css\adminlte.css.map" />
-    <Content Include="Content\css\adminlte.min.css.map" />
-    <Content Include="Content\img\Thumbs.db" />
     <Content Include="Content\jvectormap\.bower.json" />
     <Content Include="Content\jvectormap\build.sh" />
     <Content Include="Content\jvectormap\jvectormap.jquery.json" />
@@ -2191,71 +2404,57 @@
     <Content Include="Content\morris.js\spec\lib\parse_time_spec.coffee" />
     <Content Include="Content\morris.js\spec\support\placeholder.coffee" />
     <Content Include="Content\morris.js\spec\viz\run.sh" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="dist\img\Thumbs.db" />
+    <Content Include="docs\IT-ACT-ITI.doc" />
+    <Content Include="images\.DS_Store" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\fastclick\.bower.json" />
     <Content Include="Scripts\fastclick\bower.json" />
     <Content Include="Scripts\fastclick\LICENSE" />
     <Content Include="Scripts\fastclick\README.md" />
-    <Content Include="Areas\Admin\Views\Manage\AddReportCard.cshtml" />
-    <Content Include="Areas\Admin\Views\Manage\DelectReportCard.cshtml" />
-    <Content Include="Areas\Admin\Views\Manage\Result.cshtml" />
-    <Content Include="Areas\Admin\Views\Manage\admin.cshtml" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="dist\img\Thumbs.db" />
-    <Content Include="Areas\Admin\Views\News\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
-    <Content Include="css\.DS_Store" />
-    <Content Include="css\bootstrap.min.css.map" />
-    <Content Include="images\.DS_Store" />
-    <Content Include="fonts\.DS_Store" />
-    <Content Include="fonts\flaticon\font\Flaticon.eot" />
-    <Content Include="fonts\flaticon\font\Flaticon.ttf" />
-    <Content Include="fonts\flaticon\font\Flaticon.woff" />
-    <Content Include="fonts\flaticon\font\Flaticon.woff2" />
-    <Content Include="fonts\flaticon\font\_flaticon.scss" />
-    <Content Include="fonts\flaticon\license\license.pdf" />
-    <Content Include="fonts\icomoon\fonts\icomoon.eot" />
-    <Content Include="fonts\icomoon\fonts\icomoon.ttf" />
-    <Content Include="fonts\icomoon\fonts\icomoon.woff" />
-    <Content Include="fonts\icomoon\selection.json" />
-    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_sidebar.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_header.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_footer.cshtml" />
-    <Content Include="docs\IT-ACT-ITI.doc" />
-    <Content Include="Areas\Admin\Views\Image\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Image\Create.cshtml" />
-    <Content Include="libman.json" />
     <Content Include="Scripts\index.js.flow" />
-    <Content Include="Scripts\esm\popper.min.js.map" />
-    <Content Include="Scripts\esm\popper.js.map" />
-    <Content Include="Scripts\esm\popper-utils.min.js.map" />
-    <Content Include="Scripts\esm\popper-utils.js.map" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\StaffCreate.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\StudentList.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\NonTeachingStaff.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\TeachingStaff.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\StudentCreate.cshtml" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="images\Thumbs.db" />
+    <Content Include="docs\land Document.pdf" />
+    <Content Include="docs\ncte  NAME CHANG.pdf" />
+    <Content Include="docs\NCTE INTAK.pdf" />
+    <Content Include="docs\NCTE NOC.pdf" />
+    <Content Include="docs\NCTE NOC_1.pdf" />
+    <Content Include="docs\NCTE ORDER STC.pdf" />
+    <Content Include="docs\NOC 2019 univ.pdf" />
+    <Content Include="docs\noc_2020-21.pdf" />
+    <Content Include="docs\noc_gov.pdf" />
+    <Content Include="docs\Staff_TT_college.pdf" />
+    <Content Include="docs\state noc 2019-20.pdf" />
+    <Content Include="docs\State noc bed 2year.pdf" />
+    <Content Include="docs\UNI NOC.pdf" />
+    <Content Include="docs\website update.eml" />
+    <Content Include="docs\website update_1.eml" />
+    <Content Include="docs\website update_2.eml" />
+    <Content Include="docs\De1.pdf" />
+    <Content Include="docs\De2.pdf" />
+    <Content Include="docs\fee strcture.pdf" />
+    <Content Include="docs\affilition_2020-21.pdf" />
+    <Content Include="docs\BA_BEd1.pdf" />
+    <Content Include="docs\BA_BEd2.pdf" />
+    <Content Include="docs\BEd_1.pdf" />
+    <Content Include="docs\BEd_2.pdf" />
+    <Content Include="docs\BSc_BEd_1.pdf" />
+    <Content Include="docs\BSc_BEd_2.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\fastclick\lib\fastclick.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -3039,11 +3238,15 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\adminlte.js" />
+    <Content Include="Scripts\js\adminlte.min.js" />
+    <Content Include="Scripts\js\demo.js" />
+    <Content Include="Scripts\js\pages\dashboard.js" />
+    <Content Include="Scripts\js\pages\dashboard2.js" />
     <Content Include="Scripts\jvectormap\jquery-jvectormap-1.2.2.css" />
     <Content Include="Scripts\jvectormap\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Scripts\jvectormap\jquery-jvectormap-usa-en.js" />
     <Content Include="Scripts\jvectormap\jquery-jvectormap-world-mill-en.js" />
-    <Content Include="Scripts\lightboxgallery-min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment\locale\af.js" />
     <Content Include="Scripts\moment\locale\ar-dz.js" />
@@ -3413,10 +3616,6 @@
     <Content Include="Scripts\moment\templates\default.js" />
     <Content Include="Scripts\moment\templates\locale-header.js" />
     <Content Include="Scripts\moment\templates\test-header.js" />
-    <Content Include="Scripts\popper-utils.js" />
-    <Content Include="Scripts\popper-utils.min.js" />
-    <Content Include="Scripts\popper.js" />
-    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\raphael\dev\banner.txt" />
     <Content Include="Scripts\raphael\dev\raphael.amd.js" />
     <Content Include="Scripts\raphael\dev\raphael.core.js" />
@@ -3497,6 +3696,13 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="UploadedFiles\005-whatsapp.png" />
+    <Content Include="UploadedFiles\007-vimeo.png" />
+    <Content Include="UploadedFiles\013-soundcloud.png" />
+    <Content Include="UploadedFiles\2.jpg" />
+    <Content Include="UploadedFiles\5.jpg" />
+    <Content Include="UploadedFiles\DSC_0054.JPG" />
+    <Content Include="UploadedFiles\jyotishankar.jpeg" />
     <Content Include="UploadedFiles\society.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -3509,20 +3715,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\raphael\.bower.json" />
-    <Content Include="Scripts\raphael\bower.json" />
-    <Content Include="Scripts\raphael\yarn.lock" />
-    <Content Include="Scripts\moment\.bower.json" />
-    <Content Include="Scripts\moment\bower.json" />
-    <Content Include="Scripts\moment\CHANGELOG.md" />
-    <Content Include="Scripts\moment\LICENSE" />
-    <Content Include="Scripts\moment\package-lock.json" />
-    <Content Include="Scripts\moment\README.md" />
-    <Content Include="Views\Shared\_sidebarhome.cshtml" />
-    <Content Include="Views\ContactUs\ContactUs.cshtml" />
-    <Content Include="Views\ContactUs\Feedback.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Shared\_homeheader.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="scss\.DS_Store" />
     <Content Include="scss\bootstrap\.DS_Store" />
     <Content Include="scss\bootstrap\bootstrap-grid.scss" />
@@ -3612,39 +3806,72 @@
     <Content Include="scss\_site-base.scss" />
     <Content Include="scss\_site-blocks.scss" />
     <Content Include="scss\_site-navbar.scss" />
-    <Content Include="Views\Shared\_homefooter.cshtml" />
-    <Content Include="Views\Home\Defult.cshtml" />
-    <Content Include="Scripts\umd\popper.min.js.map" />
-    <Content Include="Scripts\umd\popper.js.map" />
-    <Content Include="Scripts\umd\popper.js.flow" />
-    <Content Include="Scripts\umd\popper-utils.min.js.map" />
-    <Content Include="Scripts\umd\popper-utils.js.map" />
-    <Content Include="Scripts\README.md" />
-    <Content Include="Scripts\popper.min.js.map" />
-    <Content Include="Scripts\popper.js.map" />
-    <Content Include="Scripts\popper-utils.min.js.map" />
-    <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\AboutInstitute\InstituteDetail.cshtml" />
+    <Content Include="Views\AboutInstitute\AffiliationDetail.cshtml" />
+    <Content Include="Views\AboutInstitute\AimsAndObjectives.cshtml" />
+    <Content Include="Views\AboutInstitute\ApplicationRegistration.cshtml" />
+    <Content Include="Views\AboutInstitute\AuditReport.cshtml" />
     <Content Include="Views\AboutInstitute\Infrastructure.cshtml" />
+    <Content Include="Views\AboutInstitute\InstituteDetail.cshtml" />
     <Content Include="Views\AboutInstitute\LocationAffiliation.cshtml" />
     <Content Include="Views\AboutInstitute\ManagementCommittee.cshtml" />
     <Content Include="Views\AboutInstitute\NOCDetail.cshtml" />
-    <Content Include="Views\AboutInstitute\AffiliationDetail.cshtml" />
-    <Content Include="Views\AboutInstitute\AimsAndObjectives.cshtml" />
-    <Content Include="Views\AboutInstitute\AuditReport.cshtml" />
-    <Content Include="Views\AboutInstitute\ApplicationRegistration.cshtml" />
     <Content Include="Views\AboutInstitute\TeachingSchool.cshtml" />
-    <Content Include="Views\Facilities\SportsFacilities.cshtml" />
-    <Content Include="Views\Facilities\Library.cshtml" />
-    <Content Include="Views\Facilities\Laboratory.cshtml" />
+    <Content Include="Views\ContactUs\ContactUs.cshtml" />
+    <Content Include="Views\ContactUs\Feedback.cshtml" />
     <Content Include="Views\Facilities\ComputerLab.cshtml" />
-    <Content Include="Views\StaffStudent\NonTeachingStaff.cshtml" />
-    <Content Include="Views\StaffStudent\StudentList.cshtml" />
-    <Content Include="Views\StaffStudent\FacultyOfEducation.cshtml" />
-    <Content Include="Views\StaffStudent\StudentCategory.cshtml" />
+    <Content Include="Views\Facilities\Laboratory.cshtml" />
+    <Content Include="Views\Facilities\Library.cshtml" />
+    <Content Include="Views\Facilities\SportsFacilities.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\StaffStudent\Course.cshtml" />
+    <Content Include="Views\StaffStudent\FacultyOfEducation.cshtml" />
+    <Content Include="Views\StaffStudent\NonTeachingStaff.cshtml" />
+    <Content Include="Views\StaffStudent\StudentCategory.cshtml" />
+    <Content Include="Views\StaffStudent\StudentList.cshtml" />
     <Content Include="Views\StaffStudent\TeachingStaff.cshtml" />
+    <Content Include="Scripts\moment\.bower.json" />
+    <Content Include="Scripts\moment\bower.json" />
+    <Content Include="Scripts\moment\CHANGELOG.md" />
+    <Content Include="Scripts\moment\LICENSE" />
+    <Content Include="Scripts\moment\package-lock.json" />
+    <Content Include="Scripts\moment\README.md" />
+    <Content Include="Scripts\raphael\.bower.json" />
+    <Content Include="Scripts\raphael\bower.json" />
+    <Content Include="Scripts\raphael\yarn.lock" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Views\Home\Default.cshtml" />
+    <Content Include="Views\Home\home.cshtml" />
     <Content Include="Views\Home\ImageGelary.cshtml" />
+    <Content Include="Views\Shared\_homefooter.cshtml" />
+    <Content Include="Views\Shared\_homeheader.cshtml" />
+    <Content Include="Views\Shared\_sidebarhome.cshtml" />
+    <Content Include="Views\StaffStudent\FacultyOfEdcation.cshtml" />
+    <Content Include="Views\StaffStudent\Staff.cshtml" />
+    <Content Include="Views\StaffStudent\StudentCategoryWise.cshtml" />
+    <Content Include="Views\ImageGallery\Index.cshtml" />
+    <Content Include="Views\Institute\AffiliationDetail.cshtml" />
+    <Content Include="Views\Institute\AimsObjectives.cshtml" />
+    <Content Include="Views\Institute\ApplicationRegistration.cshtml" />
+    <Content Include="Views\Institute\AuditReport.cshtml" />
+    <Content Include="Views\Institute\FeeStructure.cshtml" />
+    <Content Include="Views\Institute\Infrastruction.cshtml" />
+    <Content Include="Views\Institute\InstituteDetail.cshtml" />
+    <Content Include="Views\Institute\LocationAfftliation.cshtml" />
+    <Content Include="Views\Institute\ManagementCommittee.cshtml" />
+    <Content Include="Views\Institute\NocDetail.cshtml" />
+    <Content Include="Views\Institute\TeachingSchool.cshtml" />
+    <Content Include="Views\Facilities\Laborator.cshtml" />
+    <Content Include="Views\Facilities\SportsFacilites.cshtml" />
+    <Content Include="Views\Contact\ContactUs.cshtml" />
+    <Content Include="Views\Contact\Faq.cshtml" />
+    <Content Include="Views\Contact\Feedback.cshtml" />
+    <Content Include="Views\Contact\HelpLinks.cshtml" />
+    <Content Include="Views\Contact\HowToReach.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3654,20 +3881,17 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
-    <TypeScriptCompile Include="Scripts\moment\moment.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ITI.Data\ITI.Data.csproj">
-      <Project>{EEDA8086-C98F-43EF-9EA6-AEF9F3A9B65D}</Project>
+      <Project>{eeda8086-c98f-43ef-9ea6-aef9f3a9b65d}</Project>
       <Name>ITI.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\ITI.Models\ITI.Models.csproj">
@@ -3678,6 +3902,13 @@
       <Project>{902f167d-3695-4a70-adf8-a1b9015e3293}</Project>
       <Name>ITI.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Scripts\moment\moment.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -3696,7 +3927,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57193</DevelopmentServerPort>
+          <DevelopmentServerPort>55281</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:57193/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
@@ -3708,6 +3939,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

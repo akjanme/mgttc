@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "Staff";
+}
+
+@model List<ITI.Data.Staff>
+<div class="container">
+    <br />
+    <div class="content">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="row text-right">
+                    <div class="col-lg-11">
+
+                    </div>
+                    <div class="col-lg-1">
+                        @*<a href="/admin/StaffAcademic/create" class="btn btn-block btn-primary btn-lg">Create</a>*@
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th valign="top">
+                                <p>S. No.</p>
+                            </th>
+                            <th valign="top">
+                                <p>Name</p>
+                                <p>Date of Birth</p>
+                            </th>
+                            <th valign="top">
+                                <p>Designation</p>
+                            </th>
+                            <th valign="top">
+                                <p>Category</p>
+                            </th>
+                            <th valign="top">
+                                <p>B.Ed.</p>
+                            </th>
+                            <th valign="top">
+                                <p>M.Ed.</p>
+                            </th>
+                            <th valign="top">
+                                <p>M.A (Education)</p>
+                            </th>
+                            <th valign="top">
+                                <p>Master’s Degree</p>
+                            </th>
+                            <th valign="top">
+                                <p>Ph. D.</p>
+                            </th>
+                            <th valign="top">
+                                <p>UGC/NET</p>
+                            </th>
+                            <th valign="top">
+                                <p>Experience</p>
+                            </th>
+                            <th valign="top">
+                                <p>Joining Date</p>
+                            </th>
+                            <th>
+                                <p>Salary</p>
+                            </th>
+                            <th valign="top">
+                                <p>Photograph</p>
+                            </th>
+                        </tr>
+                        @{ int n = 0; }
+                        @foreach (var staff in Model)
+                        {
+                            n = n + 1;
+                            <tr>
+                                <td>@n</td>
+                                <td>
+                                    <strong>
+                                        @staff.Name
+                                    </strong>
+                                    <br />
+                                    @if (staff.DateOfBirth.HasValue)
+                                    {
+                                        @staff.DateOfBirth.Value.ToString("dd/MM/yyyy")
+                                    }
+                                </td>
+                                <td>@staff.Designation</td>
+                                <td>@staff.Category</td>
+                                <td>
+                                    @if (staff.B_Ed_Marks != null && staff.B_Ed_Marks > 0)
+                                    {
+                                        @:Yes
+                                        <br />
+                                        @staff.B_Ed_Marks
+                                    }
+                                    else
+                                    {
+                                        @:No
+                                    }
+                                </td>
+                                <td>
+                                    @if (staff.M_Ed_Marks != null && staff.M_Ed_Marks > 0)
+                                    {
+                                        @:Yes
+                                        <br />
+                                        @staff.M_Ed_Marks
+                                    }
+                                    else
+                                    {
+                                        @:No
+                                    }
+                                </td>
+                                <td>
+                                    @if (staff.MA_Marks != null && staff.MA_Marks > 0)
+                                    {
+                                        @:Yes
+                                        <br />
+                                        @staff.MA_Marks
+                                    }
+                                    else
+                                    {
+                                        @:No
+                                    }
+                                </td>
+                                <td>
+                                    @if (staff.Masters_Marks != null && staff.Masters_Marks > 0)
+                                    {
+                                        @:Yes
+                                        <br />
+                                        @staff.Masters_Marks
+                                    }
+                                    else
+                                    {
+                                        @:No
+                                    }
+                                </td>
+                                <td>
+                                    @if (staff.Has_Phed != null && staff.Has_Phed == true)
+                                    {
+                                        @:Yes
+                                    }
+                                    else
+                                    {
+                                        @:No
+                                    }
+                                </td>
+                                <td>
+                                    @if (staff.Has_UGC_Net != null && staff.Has_UGC_Net == true)
+                                    {
+                                        @:Yes
+                                    }
+                                    else
+                                    {
+                                        @:No
+                                    }
+                                </td>
+                                <td>@staff.Experience</td>
+                                <td>
+                                    @if (staff.DateOfJoin.HasValue)
+                                    {
+                                        @staff.DateOfJoin.Value.ToString("dd/MM/yyyy")
+                                   }
+                                </td>
+                                <td>
+                                    
+                                </td>
+                                <td><img src="~/images/staff/@staff.PhotoGraph" height="100" /></td>
+                            </tr>
+
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+

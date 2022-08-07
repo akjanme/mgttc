@@ -1,0 +1,13 @@
+﻿@model IEnumerable<ITI.Models.ImageModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+@foreach (var res in Model)
+{
+    <div class="col-md-4">
+        <img src="@res.ImageUrl" height="100" />
+        <br />
+        @res.ImagDesc 
+    </div>
+}

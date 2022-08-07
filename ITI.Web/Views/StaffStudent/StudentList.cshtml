@@ -1,35 +1,68 @@
-﻿@model IEnumerable<ITI.Models.StudentModel>
-<div class="content">
-    <div class="col-xs-12">
-        <div class="row">
-            <div class="row text-right">
-            </div>
-            <div class="box">
-                <div class="box-body">
+﻿
+@{
+    ViewBag.Title = "StudentList";
+}
+@model List<ITI.Data.Student>
+<div class="container">
+    <br />
+    <div class="content">
+        <div class="col-xs-12">
+            <div class="row w-100">
+                <table class="table table-bordered col-12">
+                    <tr>
+                        <th valign="top">
+                            <p>S. No.</p>
+                        </th>
 
-                    <div class="row">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>Staff Name</th>
-                                <th>Father Name</th>
-                                <th>Date of Birth</th>
-                            </tr>
+                        <th valign="top">
+                            <p>Name</p>
+                        </th>
+                        <th valign="top">
+                            <p>Father Name</p>
+                        </th>
+                        <th valign="top">
+                            <p>Date of Birth</p>
+                        </th>
+                        <th valign="top">
+                            <p>Category</p>
+                        </th>
 
-                            @foreach (var student in Model)
-                            {
-                                <tr>
-                                    <td>@student.Sname</td>
-                                    <td>@student.FatherName</td>
-                                    <td>@student.Dob</td>
-                                </tr>
-                            }
-                        </table>
-                    </div>
-                </div>
+                        <th valign="top">
+                            <p>Qualification</p>
+                        </th>
+                        <th valign="top">
+                            <p>Percentage</p>
+                        </th>
+                        <th valign="top">
+                            <p>PTET %</p>
+                        </th>
+                        <th valign="top">
+                            <p>Admit Date</p>
+                        </th>
+                    </tr>
+                    @{ int n = 0; }
+                    @foreach (var staff in Model)
+                    {
+                        n = n + 1;
+                        <tr>
+                            <td>@n</td>
+                            <td>@staff.Name</td>
+                            <td>@staff.FatherName</td>
+                            <td>@staff.MotherName</td>
+                            <td>@staff.Category</td>
+                            <td>@staff.Qualification</td>
+                            <td>@staff.Percentage</td>
+                            <td>@staff.Ptet_Per</td>
+                            <td>
+                                @(staff.DateOfAdmit != null ? @staff.DateOfAdmit.Value.ToString("dd/MM/yyyy") : @"")
+                            </td>
+                        </tr>
+                    }
+                </table>
             </div>
         </div>
     </div>
+    <br />
 </div>
-
 
 

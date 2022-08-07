@@ -1,0 +1,116 @@
+﻿@model ITI.Models.StaffModel
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 box box-info">
+        <div class="col-md-6">
+            <!-- Horizontal Form -->
+            <div class="box-header with-border">
+                <h3 class="box-title">Add Staff Details</h3>
+            </div>
+            <div class="row">
+                @if (ViewBag.Error != null)
+                {
+                    <div class="error-content">
+                        @ViewBag.Error
+                    </div>
+                }
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("AddStaff", "AdminStaff", FormMethod.Post, new { @class = "form-horizontal",enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Name</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Category" class="col-sm-4 control-label">Staff</label>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(x => x.Staff, new List<SelectListItem>
+                            {
+                                  new SelectListItem() {Text = "Technical", Value="Technical"},
+                                  new SelectListItem() {Text = "Academic", Value="Academic"} 
+                            },new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Staff, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Designation</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.Designation, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Matric Passing Year</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.SchoolMatric, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Qualification</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.Qualification, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(x => x.Qualification, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Date Of Birth</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Date Of Join</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.DateOfJoin, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Experience</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.Experience, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Salary</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.Salary, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Account Information</label>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(x => x.ACDetails, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Name" class="col-sm-4 control-label">Photo</label>
+                        <div class="col-sm-8">
+                            @*<input type="file" id="PhotoName" class="form-control" name="PhotoName" />*@
+                            @Html.TextBoxFor(x => x.FileName, new { type="file" ,@class= "form-control" })
+                            @Html.ValidationMessageFor(x => x.PhotoGraph, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    @Html.HiddenFor(x => x.ID)
+                    <a href="/admin/AdminStaff/Technical" class="btn btn-default">Back To Tectnical List</a>
+                    <a href="/admin/AdminStaff/Academic" class="btn btn-default">Back To Admin List</a>
+                    <button type="submit" class="btn btn-info pull-right">Save Info</button>
+                </div>
+                <!-- /.box-footer -->
+            }
+        </div>
+
+        <!-- /.box -->
+        <div class="col-md-6">
+
+        </div>
+
+    </div>
+</div>

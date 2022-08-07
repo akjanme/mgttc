@@ -1,6 +1,6 @@
 ﻿@model ITI.Models.ImageModel
 <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 box box-info">
+    <div class="col-lg-12 col-md-12 col-md-12 box box-info">
         <div class="col-md-6">
             <!-- Horizontal Form -->
             <div class="box-header with-border">
@@ -13,15 +13,15 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="Name" class="col-sm-4 control-label">Upload Images</label>
-                        <div class="col-sm-8">
+                        <label for="Name" class="col-md-4 control-label">Upload Images</label>
+                        <div class="col-md-8">
                             <input type="file" id="imageupload" class="form-control" name="FileName" />
                             @Html.ValidationMessageFor(x => x.ImageUrl, "", new { @class = "text-danger" })
                         </div>
                     </div> 
                     <div class="form-group">
-                        <label for="Name" class="col-sm-4 control-label">Images Description</label>
-                        <div class="col-sm-8">
+                        <label for="Name" class="col-md-4 control-label">Images Description</label>
+                        <div class="col-md-8">
                             @Html.TextBoxFor(x=>x.ImagDesc, null, new { @class = "form-control" })
                             @Html.ValidationMessageFor(x => x.ImagDesc, "", new { @class = "text-danger" })
                         </div>

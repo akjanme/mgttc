@@ -16,7 +16,7 @@ namespace ITI.Web.Controllers
         {
             imgRepository = new ImageRepository();
         }
-        public ActionResult Defult()
+        public ActionResult Default()
         { 
             return View();
         }
