@@ -1,8 +1,7 @@
-﻿using ITI.Data;
+﻿using ITI.Web.Data;
 using ITI.Models;
 using System;
 using System.Collections.Generic;
-using ITI.Repository.Repository;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,13 +13,13 @@ namespace ITI.Web.Controllers
         //private readonly InspectionRepository inspectionRepository;
         //private readonly ImageRepository imageRepository;
         //private readonly VisitorRepository visitorRepository;
-        //private ITIDataEntities db;
+        //private MgttcEntities db;
         //public AboutUsController()
         //{
         //    imageRepository = new ImageRepository();
         //    inspectionRepository = new InspectionRepository();
         //    visitorRepository = new VisitorRepository();
-        //    db = new ITIDataEntities();
+        //    db = new MgttcEntities();
         //}
         //// GET: AboutUs
         //public ActionResult AffiliatedTradeDetail()

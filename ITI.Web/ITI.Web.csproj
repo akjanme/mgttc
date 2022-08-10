@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -36,6 +36,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <PublishDatabases>true</PublishDatabases>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,13 +47,16 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <IncludeIisSettings>false</IncludeIisSettings>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.8\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
@@ -73,6 +78,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -136,32 +143,101 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AAboutInstituteController.cs" />
-    <Compile Include="Areas\Admin\Controllers\AFacilitiesController.cs" />
-    <Compile Include="Areas\Admin\Controllers\AStaffStundentController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ImageController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminDocumentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminStaffController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminImageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManageController.cs" />
-    <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminNewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminStudentController.cs" />
     <Compile Include="Controllers\AboutInstituteController.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
-    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\FacilitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageGalleryController.cs" />
+    <Compile Include="Controllers\InstituteController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StaffStudentController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Data\DocCategory.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DocCategoryImage.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Document.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ImageGallery.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\InstituteDetail.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Login.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MgttcModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MgttcModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MgttcModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MgttcModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MgttcModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NewsTable.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Staff.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StaticData.cs" />
+    <Compile Include="Data\Student.cs">
+      <DependentUpon>MgttcModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Filter\SessionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AcheivementModel.cs" />
+    <Compile Include="Models\AdmissionCriteriaModel.cs" />
+    <Compile Include="Models\AffilationModel.cs" />
+    <Compile Include="Models\CertificateModel.cs" />
+    <Compile Include="Models\FeedbackModel.cs" />
+    <Compile Include="Models\DocumentModel.cs" />
+    <Compile Include="Models\ImageModel.cs" />
+    <Compile Include="Models\InspectionModel.cs" />
+    <Compile Include="Models\InstituteDetailModel.cs" />
+    <Compile Include="Models\ITIResultModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MarkModel.cs" />
+    <Compile Include="Models\NewsTableModel.cs" />
+    <Compile Include="Models\PlacementTableModel.cs" />
+    <Compile Include="Models\StaffAttendenceModel.cs" />
+    <Compile Include="Models\StaffModel.cs" />
+    <Compile Include="Models\StaticData.cs" />
+    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="Models\TradeAffiliatedModel.cs" />
+    <Compile Include="Models\TradeAffiliationSouModel.cs" />
+    <Compile Include="Models\TradeAttendenceModel.cs" />
+    <Compile Include="Models\TraineeModel.cs" />
+    <Compile Include="Models\VisitorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1956,6 +2032,16 @@
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\owl.theme.default.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="Data\MgttcModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MgttcModel.edmx</DependentUpon>
+      <LastGenOutput>MgttcModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\MgttcModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MgttcModel.edmx</DependentUpon>
+      <LastGenOutput>MgttcModel.cs</LastGenOutput>
+    </Content>
     <Content Include="dist\img\avatar.png" />
     <Content Include="dist\img\avatar04.png" />
     <Content Include="dist\img\avatar2.png" />
@@ -2019,8 +2105,83 @@
     <Content Include="docs\VINOD KUMAR.jpg" />
     <Content Include="docs\YOGENDRA.jpg" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\flaticon\backup.txt" />
+    <Content Include="fonts\flaticon\font\flaticon.css" />
+    <Content Include="fonts\flaticon\font\flaticon.html" />
+    <Content Include="fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="fonts\flaticon\font\_flaticon.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon\demo-files\demo.css" />
+    <Content Include="fonts\icomoon\demo-files\demo.js" />
+    <Content Include="fonts\icomoon\demo.html" />
+    <Content Include="fonts\icomoon\fonts\icomoon.svg" />
+    <Content Include="fonts\icomoon\Read Me.txt" />
+    <Content Include="fonts\icomoon\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="images2\Affilation.jpg" />
+    <Content Include="images2\Affilation_1.jpg" />
+    <Content Include="images2\Affilation_2.jpg" />
+    <Content Include="images2\AmreshKumar.jpg" />
+    <Content Include="images2\AnilKumar.jpg" />
+    <Content Include="images2\AnithaGoyal.png" />
+    <Content Include="images2\application_letter.jpg" />
+    <Content Include="images2\application_letter1.jpg" />
+    <Content Include="images2\application_letter10.jpg" />
+    <Content Include="images2\application_letter2.jpg" />
+    <Content Include="images2\application_letter3.jpg" />
+    <Content Include="images2\application_letter4.jpg" />
+    <Content Include="images2\application_letter5.jpg" />
+    <Content Include="images2\application_letter6.jpg" />
+    <Content Include="images2\application_letter7.jpg" />
+    <Content Include="images2\application_letter8.jpg" />
+    <Content Include="images2\application_letter9.jpg" />
+    <Content Include="images2\ArunkumarPanday.jpg" />
+    <Content Include="images2\AshaRani.jpg" />
+    <Content Include="images2\Audit_Report_001.jpg" />
+    <Content Include="images2\Audit_Report_002.jpg" />
+    <Content Include="images2\Audit_Report_003.jpg" />
+    <Content Include="images2\Audit_Report_004.jpg" />
+    <Content Include="images2\Audit_Report_005.jpg" />
+    <Content Include="images2\Barajeshkumar.png" />
+    <Content Include="images2\BhagsinghYogi.jpg" />
+    <Content Include="images2\BluePrint.jpg" />
+    <Content Include="images2\clouds.jpg" />
+    <Content Include="images2\contact.png" />
+    <Content Include="images2\DeepakKumar.png" />
+    <Content Include="images2\DigamberSingh.jpg" />
+    <Content Include="images2\dots.gif" />
+    <Content Include="images2\down.gif" />
+    <Content Include="images2\footer_bg.jpg" />
+    <Content Include="images2\GirdharLal.jpg" />
+    <Content Include="images2\HariMohanSharma.jpg" />
+    <Content Include="images2\HariramSharma.jpg" />
+    <Content Include="images2\header.jpg" />
+    <Content Include="images2\image004.png" />
+    <Content Include="images2\image010.gif" />
+    <Content Include="images2\image011.gif" />
+    <Content Include="images2\JothiSankar.gif" />
+    <Content Include="images2\Logo.png" />
+    <Content Include="images2\mahatma.jpg" />
+    <Content Include="images2\mahatma_building.jpg" />
+    <Content Include="images2\management.jpg" />
+    <Content Include="images2\ManishKumar.jpg" />
+    <Content Include="images2\menu.gif" />
+    <Content Include="images2\MoolChand.jpg" />
+    <Content Include="images2\MoolChand.png" />
+    <Content Include="images2\NaveenKumar.jpg" />
+    <Content Include="images2\PriyankaSharma.png" />
+    <Content Include="images2\RadheShyam.jpg" />
+    <Content Include="images2\RamavatarSingh.jpg" />
+    <Content Include="images2\right.gif" />
+    <Content Include="images2\SandeepKumar.png" />
+    <Content Include="images2\staff\image001.png" />
+    <Content Include="images2\staff\image002.png" />
+    <Content Include="images2\staff\image005.png" />
+    <Content Include="images2\staff\image006.png" />
+    <Content Include="images2\staff\image007.png" />
+    <Content Include="images2\staff\image010.png" />
+    <Content Include="images2\VeerendarKumar.png" />
     <Content Include="images\2c87aO6.aspx" />
     <Content Include="images\87n3T7r5x.asp" />
     <Content Include="images\a2.gif" />
@@ -2213,20 +2374,17 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\NonTeachingStaff.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\StaffCreate.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\StudentCreate.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\StudentList.cshtml" />
-    <Content Include="Areas\Admin\Views\AStaffStundent\TeachingStaff.cshtml" />
-    <Content Include="Areas\Admin\Views\Image\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Image\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminStudent\StudentCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminStudent\StudentList.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminImage\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminImage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Manage\AddReportCard.cshtml" />
     <Content Include="Areas\Admin\Views\Manage\admin.cshtml" />
     <Content Include="Areas\Admin\Views\Manage\DelectReportCard.cshtml" />
     <Content Include="Areas\Admin\Views\Manage\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Manage\Result.cshtml" />
-    <Content Include="Areas\Admin\Views\News\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminNews\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminNews\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_footer.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_header.cshtml" />
@@ -2449,6 +2607,48 @@
     <Content Include="docs\BEd_2.pdf" />
     <Content Include="docs\BSc_BEd_1.pdf" />
     <Content Include="docs\BSc_BEd_2.pdf" />
+    <Content Include="images2\Infrastructure.pdf" />
+    <Content Include="images2\LeaseDocument.pdf" />
+    <Content Include="images2\LeaseDocument_old.pdf" />
+    <Content Include="images2\NCTE_NOC_2016.pdf" />
+    <Content Include="images2\NCTE_NOC_20161.pdf" />
+    <Content Include="images2\NOC_GOVT.pdf" />
+    <Content Include="images2\Staff_List.pdf" />
+    <EntityDeploy Include="Data\MgttcModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MgttcModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\MgttcModel.edmx.diagram">
+      <DependentUpon>MgttcModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDocument\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminStaff\AddStaff.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminStaff\Index.cshtml" />
+    <Content Include="fonts\.DS_Store" />
+    <Content Include="fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="fonts\flaticon\font\Flaticon.woff2" />
+    <Content Include="fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="fonts\flaticon\license\license.pdf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\icomoon\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\icomoon\fonts\icomoon.eot" />
+    <Content Include="fonts\icomoon\fonts\icomoon.ttf" />
+    <Content Include="fonts\icomoon\fonts\icomoon.woff" />
+    <Content Include="fonts\icomoon\selection.json" />
+    <Content Include="Areas\Admin\Views\Institute\AdmissionCriteria.cshtml" />
+    <Content Include="Areas\Admin\Views\Institute\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Institute\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
@@ -3704,13 +3904,6 @@
     <Content Include="UploadedFiles\DSC_0054.JPG" />
     <Content Include="UploadedFiles\jyotishankar.jpeg" />
     <Content Include="UploadedFiles\society.jpg" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -3872,13 +4065,25 @@
     <Content Include="Views\Contact\HelpLinks.cshtml" />
     <Content Include="Views\Contact\HowToReach.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Document\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\AAboutInstitute\" />
-    <Folder Include="Areas\Admin\Views\AFacilities\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Admin\Views\Student\" />
+    <Folder Include="Documents\" />
+    <Folder Include="Views\Image\" />
+    <Folder Include="Views\News\" />
+    <Folder Include="Views\Staff\" />
+    <Folder Include="Views\Student\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -3890,25 +4095,12 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ITI.Data\ITI.Data.csproj">
-      <Project>{eeda8086-c98f-43ef-9ea6-aef9f3a9b65d}</Project>
-      <Name>ITI.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ITI.Models\ITI.Models.csproj">
-      <Project>{cfff01da-18cd-4e06-b246-cfc43c2d7fa3}</Project>
-      <Name>ITI.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ITI.Repository\ITI.Repository.csproj">
-      <Project>{902f167d-3695-4a70-adf8-a1b9015e3293}</Project>
-      <Name>ITI.Repository</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
     <TypeScriptCompile Include="Scripts\moment\moment.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -3943,8 +4135,10 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

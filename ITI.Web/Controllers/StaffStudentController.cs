@@ -3,45 +3,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ITI.Data;
-using ITI.Models;
-using ITI.Repository.Repository;
+using ITI.Web.Data;
+using ITI.Models; 
+
 
 namespace ITI.Web.Controllers
 {
     public class StaffStudentController : Controller
     {
-        private readonly StaffRepository staffRepository;
-        private readonly StudentRepository studentRepository;
-        // GET: SataffStudent
+        MgttcEntities mgttcEntities;
         public StaffStudentController()
         {
-            staffRepository = new StaffRepository();
-            studentRepository = new StudentRepository();
+            mgttcEntities = new MgttcEntities();
         }
-        public ActionResult NonTeachingStaff()
+
+        public ActionResult Staff()
+        {  
+            List<Staff> staffTechnicals = mgttcEntities.Staffs.Where((Staff x) => x.StaffType == "B_Ed").ToList();
+            return View(staffTechnicals);
+        }
+
+        public ActionResult Staffd()
         {
-            var nontech = staffRepository.GetStaffs().Select(x => new StaffModel { ID = x.ID, AadharNumber = x.AadharNumber, DateOfBirth = x.DateOfBirth, DateOfJoin = x.DateOfJoin, Designation = x.Designation, Experience = x.Experience, FatherName = x.FatherName, PanNumber = x.PanNumber, Salary = x.Salary, StaffName = x.StaffName, StaffType = x.StaffType, Subject = x.Subject, SubjectNumFirst = x.SubjectNumFirst, SubjectNumSecond = x.SubjectNumSecond, TeachSubFirst = x.TeachSubFirst, TeachSubSecond = x.TeachSubSecond });
-            return View(nontech);
+            List<Staff> staffTechnicals = mgttcEntities.Staffs.Where((Staff x) => x.StaffType == "D_El_Ed").ToList(); 
+            return View("Staff", staffTechnicals);
         }
-        public ActionResult TeachingStaff()
+
+        public ActionResult StaffI()
         {
-            var tech = staffRepository.GetStaffs().Select(x => new StaffModel { ID = x.ID, AadharNumber = x.AadharNumber, DateOfBirth = x.DateOfBirth, DateOfJoin = x.DateOfJoin, Designation = x.Designation, Experience = x.Experience, FatherName = x.FatherName, PanNumber = x.PanNumber, Salary = x.Salary, StaffName = x.StaffName, StaffType = x.StaffType, Subject = x.Subject, SubjectNumFirst = x.SubjectNumFirst, SubjectNumSecond = x.SubjectNumSecond, TeachSubFirst = x.TeachSubFirst, TeachSubSecond = x.TeachSubSecond });
-            return View(tech);
+            List<Staff> staffTechnicals = mgttcEntities.Staffs.Where((Staff x) => x.StaffType == "INTEGRATED").ToList(); 
+            return View("Staff", staffTechnicals);
         }
+
         public ActionResult StudentList()
         {
-            var student = studentRepository.GetStudents().Select(x => new StudentModel { ID = x.ID, Category = x.Category, Dob = x.Dob, Faculty = x.Faculty, FatherName = x.FatherName, Gender = x.Gender, MobileNo = x.MobileNo, MotherName = x.MotherName, RollNo = x.RollNo, Session = x.Session, Sname = x.Sname, SubCategory = x.SubCategory });
-            return View(student);
+            List<Student> studendtList = mgttcEntities.Students.ToList(); 
+            return View(studendtList);
         }
-        public ActionResult FacultyOfEducation()
+
+        public ActionResult FacultyOfEdcation()
         {
             return View();
         }
-        public ActionResult StudentCategory()
+
+        public ActionResult StudentCategoryWise()
         {
             return View();
         }
+
         public ActionResult Course()
         {
             return View();

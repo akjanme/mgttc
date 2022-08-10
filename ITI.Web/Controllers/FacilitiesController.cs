@@ -9,18 +9,21 @@ namespace ITI.Web.Controllers
     public class FacilitiesController : Controller
     {
         // GET: Facilities
-        public ActionResult SportsFacilities()
+        public ActionResult SportsFacilites()
         {
             return View();
         }
+
         public ActionResult Library()
         {
             return View();
         }
-        public ActionResult Laboratory()
+
+        public ActionResult Laborator()
         {
             return View();
         }
+
         public ActionResult ComputerLab()
         {
             return View();

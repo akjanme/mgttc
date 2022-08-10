@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MgttcModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocName" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="DocUrl" Type="nvarchar" MaxLength="600" />
+          <Property Name="DocDescription" Type="nvarchar" MaxLength="600" />
+        </EntityType>
+        <EntityType Name="ImageGallery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ImagDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="InstituteDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="RegNo" Type="nvarchar" MaxLength="150" />
+          <Property Name="CertficateLink" Type="nvarchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NewsTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="NewsDate" Type="datetime" />
+          <Property Name="NewsHeadLine" Type="nvarchar" MaxLength="200" />
+          <Property Name="NewsText" Type="nvarchar" MaxLength="500" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="PhotoGraph" Type="nvarchar" MaxLength="150" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="30" />
+          <Property Name="B_Ed_Marks" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="M_Ed_Marks" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MA_Marks" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Masters_Marks" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="TeachingSubject" Type="nvarchar" MaxLength="200" />
+          <Property Name="Has_Phed" Type="bit" />
+          <Property Name="Has_UGC_Net" Type="bit" />
+          <Property Name="Experience" Type="nvarchar" MaxLength="250" />
+          <Property Name="DateOfJoin" Type="date" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="StaffType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="80" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="80" />
+          <Property Name="Category" Type="nvarchar" MaxLength="25" />
+          <Property Name="MotherName" Type="nvarchar" MaxLength="100" />
+          <Property Name="DateOfAdmit" Type="datetime" />
+          <Property Name="Session" Type="nvarchar" MaxLength="20" />
+          <Property Name="Qualification" Type="nvarchar" MaxLength="50" />
+          <Property Name="Percentage" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Ptet_Per" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="DocCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentCategory" Type="nvarchar" MaxLength="550" />
+        </EntityType>
+        <EntityType Name="DocCategoryImages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocCategoryID" Type="int" />
+          <Property Name="DocPath" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_dbo_DocCategoryImages_DocCategory">
+          <End Role="DocCategory" Type="Self.DocCategory" Multiplicity="0..1" />
+          <End Role="DocCategoryImages" Type="Self.DocCategoryImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocCategory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DocCategoryImages">
+              <PropertyRef Name="DocCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MgttcModelStoreContainer">
+          <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageGallery" EntityType="Self.ImageGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstituteDetail" EntityType="Self.InstituteDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsTable" EntityType="Self.NewsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocCategory" EntityType="Self.DocCategory" Schema="vivosoft_dbmaster" store:Type="Tables" />
+          <EntitySet Name="DocCategoryImages" EntityType="Self.DocCategoryImages" Schema="vivosoft_dbmaster" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_DocCategoryImages_DocCategory" Association="Self.FK_dbo_DocCategoryImages_DocCategory">
+            <End Role="DocCategory" EntitySet="DocCategory" />
+            <End Role="DocCategoryImages" EntitySet="DocCategoryImages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MgttcModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ImageGallery">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ImagDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InstituteDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RegNo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CertficateLink" Type="String" MaxLength="120" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NewsTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="NewsDate" Type="DateTime" Precision="3" />
+          <Property Name="NewsHeadLine" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NewsText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="PhotoGraph" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="B_Ed_Marks" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="M_Ed_Marks" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MA_Marks" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Masters_Marks" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TeachingSubject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Has_Phed" Type="Boolean" />
+          <Property Name="Has_UGC_Net" Type="Boolean" />
+          <Property Name="Experience" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfJoin" Type="DateTime" Precision="0" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StaffType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfAdmit" Type="DateTime" Precision="3" />
+          <Property Name="Session" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Percentage" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Ptet_Per" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="DocCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentCategory" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DocCategoryImages" Relationship="Self.FK_dbo_DocCategoryImages_DocCategory" FromRole="DocCategory" ToRole="DocCategoryImages" />
+        </EntityType>
+        <EntityType Name="DocCategoryImage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocCategoryID" Type="Int32" />
+          <Property Name="DocPath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DocCategory" Relationship="Self.FK_dbo_DocCategoryImages_DocCategory" FromRole="DocCategoryImages" ToRole="DocCategory" />
+        </EntityType>
+        <Association Name="FK_dbo_DocCategoryImages_DocCategory">
+          <End Role="DocCategory" Type="Self.DocCategory" Multiplicity="0..1" />
+          <End Role="DocCategoryImages" Type="Self.DocCategoryImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocCategory">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DocCategoryImages">
+              <PropertyRef Name="DocCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MgttcEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ImageGalleries" EntityType="Self.ImageGallery" />
+          <EntitySet Name="InstituteDetails" EntityType="Self.InstituteDetail" />
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="NewsTables" EntityType="Self.NewsTable" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="DocCategories" EntityType="Self.DocCategory" />
+          <EntitySet Name="DocCategoryImages" EntityType="Self.DocCategoryImage" />
+          <AssociationSet Name="FK_dbo_DocCategoryImages_DocCategory" Association="Self.FK_dbo_DocCategoryImages_DocCategory">
+            <End Role="DocCategory" EntitySet="DocCategories" />
+            <End Role="DocCategoryImages" EntitySet="DocCategoryImages" />
+          </AssociationSet>
+          <EntitySet Name="Documents" EntityType="MgttcModel.Document" />
+        </EntityContainer>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="DocUrl" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="DocDescription" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MgttcModelStoreContainer" CdmEntityContainer="MgttcEntities">
+          <EntitySetMapping Name="ImageGalleries">
+            <EntityTypeMapping TypeName="MgttcModel.ImageGallery">
+              <MappingFragment StoreEntitySet="ImageGallery">
+                <ScalarProperty Name="ImagDesc" ColumnName="ImagDesc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstituteDetails">
+            <EntityTypeMapping TypeName="MgttcModel.InstituteDetail">
+              <MappingFragment StoreEntitySet="InstituteDetail">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+                <ScalarProperty Name="CertficateLink" ColumnName="CertficateLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="MgttcModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsTables">
+            <EntityTypeMapping TypeName="MgttcModel.NewsTable">
+              <MappingFragment StoreEntitySet="NewsTable">
+                <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+                <ScalarProperty Name="NewsHeadLine" ColumnName="NewsHeadLine" />
+                <ScalarProperty Name="NewsText" ColumnName="NewsText" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="MgttcModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="PhotoGraph" ColumnName="PhotoGraph" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="B_Ed_Marks" ColumnName="B_Ed_Marks" />
+                <ScalarProperty Name="M_Ed_Marks" ColumnName="M_Ed_Marks" />
+                <ScalarProperty Name="MA_Marks" ColumnName="MA_Marks" />
+                <ScalarProperty Name="Masters_Marks" ColumnName="Masters_Marks" />
+                <ScalarProperty Name="TeachingSubject" ColumnName="TeachingSubject" />
+                <ScalarProperty Name="Has_Phed" ColumnName="Has_Phed" />
+                <ScalarProperty Name="Has_UGC_Net" ColumnName="Has_UGC_Net" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="DateOfJoin" ColumnName="DateOfJoin" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="StaffType" ColumnName="StaffType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="MgttcModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="DateOfAdmit" ColumnName="DateOfAdmit" />
+                <ScalarProperty Name="Session" ColumnName="Session" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+                <ScalarProperty Name="Ptet_Per" ColumnName="Ptet_Per" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocCategories">
+            <EntityTypeMapping TypeName="MgttcModel.DocCategory">
+              <MappingFragment StoreEntitySet="DocCategory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DocumentCategory" ColumnName="DocumentCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocCategoryImages">
+            <EntityTypeMapping TypeName="MgttcModel.DocCategoryImage">
+              <MappingFragment StoreEntitySet="DocCategoryImages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DocCategoryID" ColumnName="DocCategoryID" />
+                <ScalarProperty Name="DocPath" ColumnName="DocPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="MgttcModel.Document">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="DocDescription" ColumnName="DocDescription" />
+                <ScalarProperty Name="DocUrl" ColumnName="DocUrl" />
+                <ScalarProperty Name="DocName" ColumnName="DocName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

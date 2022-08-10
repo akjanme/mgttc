@@ -1,0 +1,37 @@
+﻿@model ITI.Models.DocumentViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Documents.Count > 0)
+        {
+            foreach (var file in Model.Documents)
+            {
+                <tr>
+                    <td>@file.DocName</td>
+                    <td>@file.DocUrl</td>
+                    <td>
+                        <a href="/AdminDocument/DownloadFile?id=@file.ID" target="_blank" class="btn btn-primary" asp-controller="AdminDocument" asp-action="DownloadFile" asp-route-id="@file.ID">Download</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="2">
+                    <h5> No Document Found!</h5>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

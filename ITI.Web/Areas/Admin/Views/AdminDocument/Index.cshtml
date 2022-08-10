@@ -1,0 +1,75 @@
+﻿@model ITI.Models.DocumentViewModel
+@{
+    ViewData["Title"] = "Index"; 
+}
+
+<h4>Start Uploading Files Here</h4>
+<hr />
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success alert-dismissible" style="margin-top:20px">
+        @ViewBag.Message
+    </div>
+}
+<form method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>Please select a file</td>
+            <td><input type="file" name="Document" required /></td>
+        </tr>
+        <tr>
+            <td>Document Name </td>
+            <td>
+                <input type="text" autocomplete="off" placeholder="Enter File Name" name="DocName" required />
+            </td>
+        </tr>
+        <tr>
+            <td>Document Description</td>
+            <td>
+                <input type="text" autocomplete="off" placeholder="Enter File Description" name="DocDescription" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button class="btn btn-success" type="submit" asp-controller="File" asp-action="UploadToDatabase">Upload to Database</button>
+            </td>
+        </tr>
+    </table>
+
+</form>
+<hr />
+@if (Model.Documents.Count == 0)
+{
+    <caption>No Records Found</caption>
+}
+else
+{
+    <caption>List of Files on File System</caption>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var file in Model.Documents)
+            {
+                <tr>
+                    <th>@file.ID</th>
+                    <td>@file.DocName</td>
+                    <td>@file.DocUrl</td>
+                    <td>
+                        <a href="/AdminDocument/DownloadFile?id=@file.ID" target="_blank" class="btn btn-primary" asp-controller="AdminDocument" asp-action="DownloadFile" asp-route-id="@file.ID">Download</a>
+                    </td>
+                    <td>
+                        <a href="/Admin/AdminDocument/DeleteFileFromFileSystem?id=@file.ID" class="btn btn-danger" asp-controller="AdminDocument" asp-action="DeleteFileFromFileSystem" asp-route-id="@file.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

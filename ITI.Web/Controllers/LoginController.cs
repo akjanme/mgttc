@@ -4,42 +4,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ITI.Data;
-using ITI.Repository;
+using ITI.Web.Data;
 
 namespace ITI.Web.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
         public ActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult Login(Login login)
+        public ActionResult Login(LoginModel loginModel)
         {
-            if (ModelState.IsValid)
+            if (base.ModelState.IsValid)
             {
-                MGTTCEntities mGTTCEntities = new MGTTCEntities();
-                var user = mGTTCEntities.Logins.Where(x => x.user_name == login.user_name && x.password == login.password);
-                if(user != null)
+                Login user = new MgttcEntities().Logins.FirstOrDefault((Login x) => x.user_name == loginModel.User_Name && x.password == loginModel.Password);
+                if (user != null)
                 {
-                    Session["UserName"] = user.FirstOrDefault().user_name; 
-                    return Redirect("/Admin/Manage/Admin");
+                    base.Session["UserName"] = user.user_name;
+                    return Redirect("/Admin/Default/Index");
                 }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid login credentials.");
-                }
+                base.ModelState.AddModelError("", "Invalid login credentials.");
             }
-            return View(login);
+            return View(loginModel);
         }
+
         public ActionResult LogOut()
         {
-            HttpContext.Session["UserName"] = null;
-            Session.Abandon();
-            return Redirect("~/Home/Defult");
+            base.HttpContext.Session["UserName"] = null;
+            base.Session.Abandon();
+            return Redirect("~/Home/Home");
         }
     }
 }

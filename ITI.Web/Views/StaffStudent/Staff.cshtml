@@ -3,7 +3,7 @@
     ViewBag.Title = "Staff";
 }
 
-@model List<ITI.Data.Staff>
+@model List<ITI.Web.Data.Staff>
 <div class="container">
     <br />
     <div class="content">
@@ -56,10 +56,7 @@
                             </th>
                             <th valign="top">
                                 <p>Joining Date</p>
-                            </th>
-                            <th>
-                                <p>Salary</p>
-                            </th>
+                            </th> 
                             <th valign="top">
                                 <p>Photograph</p>
                             </th>
@@ -156,10 +153,7 @@
                                     {
                                         @staff.DateOfJoin.Value.ToString("dd/MM/yyyy")
                                    }
-                                </td>
-                                <td>
-                                    
-                                </td>
+                                </td> 
                                 <td><img src="~/images/staff/@staff.PhotoGraph" height="100" /></td>
                             </tr>
 
