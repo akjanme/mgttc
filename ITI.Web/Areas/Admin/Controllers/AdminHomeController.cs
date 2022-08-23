@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ITI.Web.Areas.Admin.Controllers
 {
-    public class DefaultController : Controller
+    public class AdminHomeController : Controller
     {
         public ActionResult Index()
         {

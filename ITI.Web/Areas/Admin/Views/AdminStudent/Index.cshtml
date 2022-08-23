@@ -7,7 +7,7 @@
 
                 </div>
                 <div class="col-lg-1">
-                    <a href="/Admin/AStaffStundent/StudentCreate" class="btn btn-primary btn-lg">Create</a>
+                    <a href="/Admin/AdminStudent/StudentCreate" class="btn btn-primary btn-lg">Create</a>
                 </div>
             </div>
             <div class="box">
@@ -26,11 +26,11 @@
                             @foreach (var student in Model)
                             {
                                 <tr>
-                                    <td>@student.Sname</td>
+                                    <td>@student.Name</td>
                                     <td>@student.FatherName</td>
-                                    <td>@student.Dob</td>
-                                    <td><a href="/Admin/AStaffStundent/StudentCreate?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                    <td><a href="/admin/AStaffStundent/DeleteStudent?id=@student.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                    <td>@student.DateOfAdmit</td>
+                                    <td><a href="/Admin/AdminStudent/StudentCreate?id=@student.ID" class="update btn btn-warning btn-sm">Edit<span class="glyphicon glyphicon-pencil"></span></a></td>
+                                    <td><a href="/Admin/AdminStudent/DeleteStudent?id=@student.ID" class="update btn btn-warning btn-sm">Delete<span class="glyphicon glyphicon-trash"></span></a></td>
 
                                 </tr>
                             }

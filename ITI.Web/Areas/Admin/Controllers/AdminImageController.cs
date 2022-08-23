@@ -91,6 +91,7 @@ namespace ITI.Web.Areas.Admin.Controllers
                 {
                     System.IO.File.Delete(base.Server.MapPath(image.ImageUrl));
                     mgttcEntities.ImageGalleries.Remove(image);
+                    mgttcEntities.SaveChanges();
                 }
             }
             return RedirectToAction("Index");

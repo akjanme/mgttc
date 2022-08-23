@@ -16,22 +16,22 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            @using (Html.BeginForm("StudentCreate", "AStaffStundent", FormMethod.Post, new { @class = "form-horizontal", name = "studentform" }))
+            @using (Html.BeginForm("StudentCreate", "AdminStudent", FormMethod.Post, new { @class = "form-horizontal", name = "studentform" }))
             {
         <div class="box-body">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
                 <label for="DateofBirth" class="col-sm-4 control-label">Roll Number</label>
                 <div class="col-sm-8">
-                    @Html.TextBoxFor(x => x.RollNo, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
                 @*@Html.LabelFor(x => x.Sname, "Student Name", new { @class = "col-sm-2 control-label" })*@
                 <label for="Name" class="col-sm-4 control-label">Student Name</label>
                 <div class="col-sm-8">
-                    @Html.TextBoxFor(x => x.Sname, new { @class = "form-control" })
-                    @Html.ValidationMessageFor(x => x.Sname, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
@@ -40,17 +40,11 @@
                     @Html.TextBoxFor(x => x.FatherName, new { @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.FatherName, "", new { @class = "text-danger" })
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="DateofBirth" class="col-sm-4 control-label">Mother's Name</label>
-                <div class="col-sm-8">
-                    @Html.TextBoxFor(x => x.MotherName, new { @class = "form-control" })
-                </div>
-            </div>
+            </div> 
             <div class="form-group">
                 <label for="DateofBirth" class="col-sm-4 control-label">Gender</label>
                 <div class="col-sm-8">
-                    @Html.TextBoxFor(x => x.Gender, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.MotherName, new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
@@ -59,31 +53,13 @@
                     @Html.TextBoxFor(x => x.Category, new { @class = "form-control" })
                     @Html.ValidationMessageFor(x => x.Category, "", new { @class = "text-danger" })
                 </div>
-            </div>
+            </div> 
             <div class="form-group">
-                <label for="DateofBirth" class="col-sm-4 control-label">Sub Category</label>
+                <label for="DateofBirth" class="col-sm-4 control-label">Date Of Admit</label>
                 <div class="col-sm-8">
-                    @Html.TextBoxFor(x => x.SubCategory, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => x.DateOfAdmit, new { @class = "form-control" })
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="DateofBirth" class="col-sm-4 control-label">Date Of Birth</label>
-                <div class="col-sm-8">
-                    @Html.TextBoxFor(x => x.Dob, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="DateofBirth" class="col-sm-4 control-label">Mobile Number</label>
-                <div class="col-sm-8">
-                    @Html.TextBoxFor(x => x.MobileNo, new { @class = "form-control" })
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="DateofBirth" class="col-sm-4 control-label">Faculty</label>
-                <div class="col-sm-8">
-                    @Html.TextBoxFor(x => x.Faculty, new { @class = "form-control" })
-                </div>
-            </div>
+            </div>  
             <div class="form-group">
                 <label for="DateofBirth" class="col-sm-4 control-label">Session</label>
                 <div class="col-sm-8">
@@ -95,7 +71,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     @Html.HiddenFor(x => x.ID)
-                    <a href="/Admin/AStaffStundent/StudentList" class="btn btn-default">Back To List</a>
+                    <a href="/Admin/AdminStudent/index" class="btn btn-default">Back To List</a>
                     <button type="submit" class="btn btn-info pull-right">Save</button>
                 </div>
                 <!-- /.box-footer -->

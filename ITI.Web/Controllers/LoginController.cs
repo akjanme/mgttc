@@ -24,7 +24,7 @@ namespace ITI.Web.Controllers
                 if (user != null)
                 {
                     base.Session["UserName"] = user.user_name;
-                    return Redirect("/Admin/Default/Index");
+                    return Redirect("/Admin/AdminHome/Index");
                 }
                 base.ModelState.AddModelError("", "Invalid login credentials.");
             }
@@ -35,7 +35,7 @@ namespace ITI.Web.Controllers
         {
             base.HttpContext.Session["UserName"] = null;
             base.Session.Abandon();
-            return Redirect("~/Home/Home");
+            return Redirect("~/Default/Index");
         }
     }
 }

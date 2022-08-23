@@ -9,8 +9,9 @@ namespace ITI.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
-                        //"~/bower_components/jquery/dist/jquery.min.js",
+                        "~/Scripts/jquery-{version}.js",
+                        "~/js/jquery-ui.js"));
+                       //"~/bower_components/jquery/dist/jquery.min.js",
                         //"~/bower_components/jquery-ui/jquery-ui.min.js",
                         //"~/bower_components/bootstrap/dist/js/bootstrap.min.js",
                         //"~/bower_components/raphael/raphael.min.js",
@@ -28,9 +29,8 @@ namespace ITI.Web
                         //"~/dist/js/adminlte.min.js", "~/dist/js/pages/dashboard.js", "~/dist/js/demo.js"
                          
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
-                     "~/js/jquery-3.3.1.min.js",
+                     //"~/js/jquery-3.3.1.min.js",
                      "~/js/jquery-migrate-3.0.1.min.js",
-                     "~/js/jquery-ui.js",
                      "~/js/popper.min.js",
                      "~/js/bootstrap.min.js",
                      "~/js/owl.carousel.min.js",
@@ -41,7 +41,7 @@ namespace ITI.Web
                      "~/js/aos.js",
                      "~/js/jquery.fancybox.min.js",
                      "~/js/jquery.sticky.js",
-                     "~/js/jquery.mb.YTPlayer.min.js",
+                     "~/js/jquery.mb.YTPlayer.min.js", 
                      "~/js/main.js"
                 ));
 
@@ -62,7 +62,8 @@ namespace ITI.Web
                         "~/Scripts/fastclick/lib/fastclick.js",
                         "~/Scripts/js/adminlte.min.js",
                         "~/Scripts/js/demo.js",
-                        "~/Scripts/js/pages/dashboard.js"
+                        "~/Scripts/js/pages/dashboard.js",
+                        "~/Scripts/jquery-ui/ui/minified/sortable.min.js"
                        ));
 
             //            < script >
@@ -132,6 +133,7 @@ namespace ITI.Web
                         "~/Content/morris.js/morris.css",
                         "~/Content/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css",
                         "~/Content/bootstrap-daterangepicker/daterangepicker.css",
+                        "~/Scripts/jquery-ui/themes/base/sortable.css",
                         "~/Content/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"
                 ));
 

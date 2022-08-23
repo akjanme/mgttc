@@ -7,7 +7,7 @@
 
                 </div>
                 <div class="col-lg-1">
-                    <a href="/admin/Placement/create" class="btn btn-block btn-primary btn-lg">Create</a>
+                    <a href="/admin/AdminNews/create" class="btn btn-primary btn-lg">Create</a>
                 </div>
             </div>
             <div class="box">
@@ -27,8 +27,8 @@
                                 <tr>
                                     <td>@placement.NewsDate</td>
                                     <td>@placement.NewsHeadLine</td>
-                                    <td><a href="/admin/Placement/create?id=@placement.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                    <td><a href="/admin/Placement/delete?id=@placement.ID" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                    <td><a href="/admin/adminnews/create?id=@placement.ID" class="update btn btn-warning btn-sm">Edit </a></td>
+                                    <td><a href="/admin/adminnews/delete?id=@placement.ID" class="update btn btn-warning btn-sm">Delete </a></td>
 
                                 </tr>
                             }

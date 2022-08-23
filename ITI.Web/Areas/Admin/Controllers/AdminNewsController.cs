@@ -70,6 +70,7 @@ namespace ITI.Web.Areas.Admin.Controllers
                     {
                         mgttcEntities.NewsTables.Add(newsTable); 
                     }
+                    mgttcEntities.SaveChanges();
                     return RedirectToAction("Index");
                 }
                 return View(newsTableModel);
@@ -87,6 +88,7 @@ namespace ITI.Web.Areas.Admin.Controllers
             {
                 NewsTable news = mgttcEntities.NewsTables.FirstOrDefault((NewsTable x) => x.ID == id);
                 mgttcEntities.NewsTables.Remove(news);
+                mgttcEntities.SaveChanges();
             }
             return RedirectToAction("Index");
         }

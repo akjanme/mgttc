@@ -72,7 +72,7 @@ namespace ITI.Web.Areas.Admin.Controllers
                 return View(studentModel);
             }
         }
-        public ActionResult StudentList()
+        public ActionResult Index()
         {
             var student = mgttcEntities.Students.Select(x => new StudentModel { ID = x.ID, Category = x.Category, FatherName = x.FatherName,  MotherName = x.MotherName, Session = x.Session});
             return View(student);

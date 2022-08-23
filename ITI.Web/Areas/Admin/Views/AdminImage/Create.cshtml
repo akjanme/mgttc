@@ -8,7 +8,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            @using (Html.BeginForm("Create", "Image", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Create", "adminImage", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
             {
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="box-body">
